@@ -1,0 +1,3747 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_05fcd8e1a1649a73cf8a53a278c8efc3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed;
+    top: 80px;
+    left: 50px;
+    z-index: 9999;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
+    max-height: 70vh;
+    overflow-y: auto;
+    font-size: 13px;
+">
+    <div style="
+        font-weight: bold;
+        margin-bottom: 8px;
+    ">
+        Navigate to city
+    </div>
+
+    <button
+        onclick="map_05fcd8e1a1649a73cf8a53a278c8efc3.fitBounds(
+            [[47.468, -2.062], [52.557, 13.378]],
+            {padding: [30, 30]}
+        )"
+        style="
+            width: 100%;
+            margin-bottom: 5px;
+            cursor: pointer;
+        "
+    >
+        All cities
+    </button>
+
+    <button
+        onclick="map_05fcd8e1a1649a73cf8a53a278c8efc3.setView(
+            [52.38, 4.93],
+            12
+        )"
+        style="
+            display: block;
+            width: 100%;
+            margin-bottom: 4px;
+            cursor: pointer;
+        "
+    >
+        Amsterdam
+    </button>
+    
+    <button
+        onclick="map_05fcd8e1a1649a73cf8a53a278c8efc3.setView(
+            [47.54958441558441, 7.602688311688312],
+            12
+        )"
+        style="
+            display: block;
+            width: 100%;
+            margin-bottom: 4px;
+            cursor: pointer;
+        "
+    >
+        Basel
+    </button>
+    
+    <button
+        onclick="map_05fcd8e1a1649a73cf8a53a278c8efc3.setView(
+            [52.489125, 13.267125],
+            12
+        )"
+        style="
+            display: block;
+            width: 100%;
+            margin-bottom: 4px;
+            cursor: pointer;
+        "
+    >
+        Berlin
+    </button>
+    
+    <button
+        onclick="map_05fcd8e1a1649a73cf8a53a278c8efc3.setView(
+            [52.46322222222222, -1.9095555555555555],
+            12
+        )"
+        style="
+            display: block;
+            width: 100%;
+            margin-bottom: 4px;
+            cursor: pointer;
+        "
+    >
+        Birmingham
+    </button>
+    </div>
+    
+            <div class="folium-map" id="map_05fcd8e1a1649a73cf8a53a278c8efc3" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_05fcd8e1a1649a73cf8a53a278c8efc3 = L.map(
+                "map_05fcd8e1a1649a73cf8a53a278c8efc3",
+                {
+                    center: [48.8264326923077, 6.366365384615386],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e634c6e643f9c2725fca14f145e57d6d = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e634c6e643f9c2725fca14f145e57d6d.addTo(map_05fcd8e1a1649a73cf8a53a278c8efc3);
+        
+    
+            var feature_group_401b9f2e00060974b74abdfa2a259765 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_b09b2fdf74831a55a6e19432795dbdc9 = L.circleMarker(
+                [52.38, 4.93],
+                {"bubblingMouseEvents": true, "color": "#8d0026ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8d0026ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_401b9f2e00060974b74abdfa2a259765);
+        
+    
+        var popup_049a2ceb92988a653866cd166a5b5f44 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f112e262dea3904d9ce348ff16831b5 = $(`<div id="html_2f112e262dea3904d9ce348ff16831b5" style="width: 100.0%; height: 100.0%;"><b>Amsterdam</b><br>Station: NLD_AMS_2241<br>Within-city rank: 1 of 1<br>Mean predicted probability: 10.26%<br>Observed test records: 6,633<br>Observed months: 10 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_049a2ceb92988a653866cd166a5b5f44.setContent(html_2f112e262dea3904d9ce348ff16831b5);
+            
+        
+
+        circle_marker_b09b2fdf74831a55a6e19432795dbdc9.bindPopup(popup_049a2ceb92988a653866cd166a5b5f44)
+        ;
+
+        
+    
+    
+            circle_marker_b09b2fdf74831a55a6e19432795dbdc9.bindTooltip(
+                `<div>
+                     Amsterdam — Station NLD_AMS_2241 — 10.26%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_401b9f2e00060974b74abdfa2a259765.addTo(map_05fcd8e1a1649a73cf8a53a278c8efc3);
+        
+    
+            var feature_group_9249fa6f7c06920335d7b23f3aa125fc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_03b865b24bf796008120bc9bccdd4e68 = L.circleMarker(
+                [47.523, 7.715],
+                {"bubblingMouseEvents": true, "color": "#ffe48cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe48cff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_cde4f7435b88d93b72080c6bbb217d57 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37369665b9cb0a3b492d0cae9fc9f50e = $(`<div id="html_37369665b9cb0a3b492d0cae9fc9f50e" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Wannenboden<br>Within-city rank: 1 of 77<br>Mean predicted probability: 7.84%<br>Observed test records: 7,133<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_cde4f7435b88d93b72080c6bbb217d57.setContent(html_37369665b9cb0a3b492d0cae9fc9f50e);
+            
+        
+
+        circle_marker_03b865b24bf796008120bc9bccdd4e68.bindPopup(popup_cde4f7435b88d93b72080c6bbb217d57)
+        ;
+
+        
+    
+    
+            circle_marker_03b865b24bf796008120bc9bccdd4e68.bindTooltip(
+                `<div>
+                     Basel — Station Wannenboden — 7.84%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8419528af61c0aecb017af6b0b638f7d = L.circleMarker(
+                [47.593, 7.654],
+                {"bubblingMouseEvents": true, "color": "#ffe58eff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe58eff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_454174f65bd94309e856e768361650e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ffb60b4a2af4ef488ef63a5d36dc0ba5 = $(`<div id="html_ffb60b4a2af4ef488ef63a5d36dc0ba5" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: .Schild.<br>Within-city rank: 2 of 77<br>Mean predicted probability: 7.82%<br>Observed test records: 5,255<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_454174f65bd94309e856e768361650e5.setContent(html_ffb60b4a2af4ef488ef63a5d36dc0ba5);
+            
+        
+
+        circle_marker_8419528af61c0aecb017af6b0b638f7d.bindPopup(popup_454174f65bd94309e856e768361650e5)
+        ;
+
+        
+    
+    
+            circle_marker_8419528af61c0aecb017af6b0b638f7d.bindTooltip(
+                `<div>
+                     Basel — Station .Schild. — 7.82%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_440193fbcae4acbda12ff3ed59ed19fb = L.circleMarker(
+                [47.6, 7.64],
+                {"bubblingMouseEvents": true, "color": "#ffe691ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe691ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_d98371ed6b1128fa953ddf37bcf883a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cb61d01f16af7107cbcf63a0876be0d3 = $(`<div id="html_cb61d01f16af7107cbcf63a0876be0d3" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Tüllingerstrasse<br>Within-city rank: 3 of 77<br>Mean predicted probability: 7.80%<br>Observed test records: 5,536<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_d98371ed6b1128fa953ddf37bcf883a2.setContent(html_cb61d01f16af7107cbcf63a0876be0d3);
+            
+        
+
+        circle_marker_440193fbcae4acbda12ff3ed59ed19fb.bindPopup(popup_d98371ed6b1128fa953ddf37bcf883a2)
+        ;
+
+        
+    
+    
+            circle_marker_440193fbcae4acbda12ff3ed59ed19fb.bindTooltip(
+                `<div>
+                     Basel — Station Tüllingerstrasse — 7.80%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3827379f69b9c0ba0802cc31da13340b = L.circleMarker(
+                [47.58, 7.641],
+                {"bubblingMouseEvents": true, "color": "#ffe997ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe997ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_d8ca68437f5bb1f0f0a6edf4e181e1ab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_58dd08012086a8539cd25581670d2de7 = $(`<div id="html_58dd08012086a8539cd25581670d2de7" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Baselstrasse<br>Within-city rank: 4 of 77<br>Mean predicted probability: 7.74%<br>Observed test records: 5,374<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_d8ca68437f5bb1f0f0a6edf4e181e1ab.setContent(html_58dd08012086a8539cd25581670d2de7);
+            
+        
+
+        circle_marker_3827379f69b9c0ba0802cc31da13340b.bindPopup(popup_d8ca68437f5bb1f0f0a6edf4e181e1ab)
+        ;
+
+        
+    
+    
+            circle_marker_3827379f69b9c0ba0802cc31da13340b.bindTooltip(
+                `<div>
+                     Basel — Station Baselstrasse — 7.74%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6dc1440856638cec79450c76c957808 = L.circleMarker(
+                [47.571, 7.64],
+                {"bubblingMouseEvents": true, "color": "#ffea9aff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffea9aff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_63f48b4ff7da44bb11e8e972eb5e0727 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_116c9d123881ed6119e165ed534e71a7 = $(`<div id="html_116c9d123881ed6119e165ed534e71a7" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Rüdinstrasse<br>Within-city rank: 5 of 77<br>Mean predicted probability: 7.72%<br>Observed test records: 5,312<br>Observed months: 9 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_63f48b4ff7da44bb11e8e972eb5e0727.setContent(html_116c9d123881ed6119e165ed534e71a7);
+            
+        
+
+        circle_marker_d6dc1440856638cec79450c76c957808.bindPopup(popup_63f48b4ff7da44bb11e8e972eb5e0727)
+        ;
+
+        
+    
+    
+            circle_marker_d6dc1440856638cec79450c76c957808.bindTooltip(
+                `<div>
+                     Basel — Station Rüdinstrasse — 7.72%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a51d88dd8c2690ad5645b14e3dba018f = L.circleMarker(
+                [47.564, 7.637],
+                {"bubblingMouseEvents": true, "color": "#ffec9dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffec9dff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_d1dac4e1ad1d3c90351f931e602199de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d3c4ee4c7b8c5a45d9263cca8d44a6d = $(`<div id="html_4d3c4ee4c7b8c5a45d9263cca8d44a6d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Hirtenweg<br>Within-city rank: 6 of 77<br>Mean predicted probability: 7.69%<br>Observed test records: 7,222<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_d1dac4e1ad1d3c90351f931e602199de.setContent(html_4d3c4ee4c7b8c5a45d9263cca8d44a6d);
+            
+        
+
+        circle_marker_a51d88dd8c2690ad5645b14e3dba018f.bindPopup(popup_d1dac4e1ad1d3c90351f931e602199de)
+        ;
+
+        
+    
+    
+            circle_marker_a51d88dd8c2690ad5645b14e3dba018f.bindTooltip(
+                `<div>
+                     Basel — Station Hirtenweg — 7.69%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b07bc351d44b2d1897d0c0609bf781b1 = L.circleMarker(
+                [47.531, 7.662],
+                {"bubblingMouseEvents": true, "color": "#ffec9eff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffec9eff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_858fb5ea1807c3e2da0f8609e332a6de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_68c210df0c93c7df452cf9923c0bb439 = $(`<div id="html_68c210df0c93c7df452cf9923c0bb439" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Schweizerhalle<br>Within-city rank: 7 of 77<br>Mean predicted probability: 7.68%<br>Observed test records: 7,925<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_858fb5ea1807c3e2da0f8609e332a6de.setContent(html_68c210df0c93c7df452cf9923c0bb439);
+            
+        
+
+        circle_marker_b07bc351d44b2d1897d0c0609bf781b1.bindPopup(popup_858fb5ea1807c3e2da0f8609e332a6de)
+        ;
+
+        
+    
+    
+            circle_marker_b07bc351d44b2d1897d0c0609bf781b1.bindTooltip(
+                `<div>
+                     Basel — Station Schweizerhalle — 7.68%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eb5fe4603e0cd5e79ee90d962eb5265c = L.circleMarker(
+                [47.57, 7.627],
+                {"bubblingMouseEvents": true, "color": "#ffed9fff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffed9fff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_f06494ca82e62affb0e68a3cf67d1984 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15bc5187ec314745dafcdad97a313f00 = $(`<div id="html_15bc5187ec314745dafcdad97a313f00" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Bäumlihofstrasse<br>Within-city rank: 8 of 77<br>Mean predicted probability: 7.67%<br>Observed test records: 7,628<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_f06494ca82e62affb0e68a3cf67d1984.setContent(html_15bc5187ec314745dafcdad97a313f00);
+            
+        
+
+        circle_marker_eb5fe4603e0cd5e79ee90d962eb5265c.bindPopup(popup_f06494ca82e62affb0e68a3cf67d1984)
+        ;
+
+        
+    
+    
+            circle_marker_eb5fe4603e0cd5e79ee90d962eb5265c.bindTooltip(
+                `<div>
+                     Basel — Station Bäumlihofstrasse — 7.67%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4975acb5621eb74c337ad11c425b98ba = L.circleMarker(
+                [47.559, 7.635],
+                {"bubblingMouseEvents": true, "color": "#ffed9fff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffed9fff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_7a8288b694f1d710ff260b39ce61548c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5d2bfa70ad30c7cd53ce5060f3c1fa2b = $(`<div id="html_5d2bfa70ad30c7cd53ce5060f3c1fa2b" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Insel<br>Within-city rank: 9 of 77<br>Mean predicted probability: 7.67%<br>Observed test records: 5,597<br>Observed months: 10 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_7a8288b694f1d710ff260b39ce61548c.setContent(html_5d2bfa70ad30c7cd53ce5060f3c1fa2b);
+            
+        
+
+        circle_marker_4975acb5621eb74c337ad11c425b98ba.bindPopup(popup_7a8288b694f1d710ff260b39ce61548c)
+        ;
+
+        
+    
+    
+            circle_marker_4975acb5621eb74c337ad11c425b98ba.bindTooltip(
+                `<div>
+                     Basel — Station Insel — 7.67%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0cd7e5ba68c7babd72da28f84f7466ff = L.circleMarker(
+                [47.556, 7.637],
+                {"bubblingMouseEvents": true, "color": "#ffed9fff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffed9fff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_ddedc4fd8a85fac1e1f720862c1b5caf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9bde94bf9c0d9cb1dd28e49c591f4d9c = $(`<div id="html_9bde94bf9c0d9cb1dd28e49c591f4d9c" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Hafenstrasse<br>Within-city rank: 10 of 77<br>Mean predicted probability: 7.66%<br>Observed test records: 7,603<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_ddedc4fd8a85fac1e1f720862c1b5caf.setContent(html_9bde94bf9c0d9cb1dd28e49c591f4d9c);
+            
+        
+
+        circle_marker_0cd7e5ba68c7babd72da28f84f7466ff.bindPopup(popup_ddedc4fd8a85fac1e1f720862c1b5caf)
+        ;
+
+        
+    
+    
+            circle_marker_0cd7e5ba68c7babd72da28f84f7466ff.bindTooltip(
+                `<div>
+                     Basel — Station Hafenstrasse — 7.66%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ffe607824c87c5d61eff3c954ab1a019 = L.circleMarker(
+                [47.538, 7.649],
+                {"bubblingMouseEvents": true, "color": "#ffeea0ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffeea0ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_40f37be5f280f103d65a3aa0c737131c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da7f84311a6240877cbc795c5b4dc18f = $(`<div id="html_da7f84311a6240877cbc795c5b4dc18f" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Mast.<br>Within-city rank: 11 of 77<br>Mean predicted probability: 7.66%<br>Observed test records: 8,737<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_40f37be5f280f103d65a3aa0c737131c.setContent(html_da7f84311a6240877cbc795c5b4dc18f);
+            
+        
+
+        circle_marker_ffe607824c87c5d61eff3c954ab1a019.bindPopup(popup_40f37be5f280f103d65a3aa0c737131c)
+        ;
+
+        
+    
+    
+            circle_marker_ffe607824c87c5d61eff3c954ab1a019.bindTooltip(
+                `<div>
+                     Basel — Station Mast. — 7.66%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16f87920dd82d0a2584c5a70bfeb6fc6 = L.circleMarker(
+                [47.562, 7.627],
+                {"bubblingMouseEvents": true, "color": "#ffeea1ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffeea1ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_1ac4acdb1f4359b5716afba74197250d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7879db606e41d7e0efdec4d5a055877d = $(`<div id="html_7879db606e41d7e0efdec4d5a055877d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 487<br>Within-city rank: 12 of 77<br>Mean predicted probability: 7.65%<br>Observed test records: 8,710<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_1ac4acdb1f4359b5716afba74197250d.setContent(html_7879db606e41d7e0efdec4d5a055877d);
+            
+        
+
+        circle_marker_16f87920dd82d0a2584c5a70bfeb6fc6.bindPopup(popup_1ac4acdb1f4359b5716afba74197250d)
+        ;
+
+        
+    
+    
+            circle_marker_16f87920dd82d0a2584c5a70bfeb6fc6.bindTooltip(
+                `<div>
+                     Basel — Station 487 — 7.65%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9409e038b8ca610dc6894a92580c5067 = L.circleMarker(
+                [47.558, 7.627],
+                {"bubblingMouseEvents": true, "color": "#ffeea2ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffeea2ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_979a6985419c4e1b33c7f34918579e9b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bdab50d1a984de25773b51f1c8d1248d = $(`<div id="html_bdab50d1a984de25773b51f1c8d1248d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Hofstrasse<br>Within-city rank: 13 of 77<br>Mean predicted probability: 7.64%<br>Observed test records: 7,532<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_979a6985419c4e1b33c7f34918579e9b.setContent(html_bdab50d1a984de25773b51f1c8d1248d);
+            
+        
+
+        circle_marker_9409e038b8ca610dc6894a92580c5067.bindPopup(popup_979a6985419c4e1b33c7f34918579e9b)
+        ;
+
+        
+    
+    
+            circle_marker_9409e038b8ca610dc6894a92580c5067.bindTooltip(
+                `<div>
+                     Basel — Station Hofstrasse — 7.64%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7d588466e9914308cebb2d9051caad3 = L.circleMarker(
+                [47.554, 7.627],
+                {"bubblingMouseEvents": true, "color": "#ffefa4ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffefa4ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_785c721b0c5bbf1cb2d19bf9a347be59 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb2d04178992269f0a196f5268318174 = $(`<div id="html_eb2d04178992269f0a196f5268318174" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Lärchengartenstrasse<br>Within-city rank: 14 of 77<br>Mean predicted probability: 7.63%<br>Observed test records: 8,317<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_785c721b0c5bbf1cb2d19bf9a347be59.setContent(html_eb2d04178992269f0a196f5268318174);
+            
+        
+
+        circle_marker_c7d588466e9914308cebb2d9051caad3.bindPopup(popup_785c721b0c5bbf1cb2d19bf9a347be59)
+        ;
+
+        
+    
+    
+            circle_marker_c7d588466e9914308cebb2d9051caad3.bindTooltip(
+                `<div>
+                     Basel — Station Lärchengartenstrasse — 7.63%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ff4bffc63f802b17cd030907aa555b95 = L.circleMarker(
+                [47.567, 7.614],
+                {"bubblingMouseEvents": true, "color": "#ffefa5ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffefa5ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_78a63728f2f61d12f449c1f3c7fac85e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3dbd263978702b307090c304754b8477 = $(`<div id="html_3dbd263978702b307090c304754b8477" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Kleinriehenstrasse<br>Within-city rank: 15 of 77<br>Mean predicted probability: 7.62%<br>Observed test records: 8,744<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_78a63728f2f61d12f449c1f3c7fac85e.setContent(html_3dbd263978702b307090c304754b8477);
+            
+        
+
+        circle_marker_ff4bffc63f802b17cd030907aa555b95.bindPopup(popup_78a63728f2f61d12f449c1f3c7fac85e)
+        ;
+
+        
+    
+    
+            circle_marker_ff4bffc63f802b17cd030907aa555b95.bindTooltip(
+                `<div>
+                     Basel — Station Kleinriehenstrasse — 7.62%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ed7803c7c43436339429ff5a479e7c58 = L.circleMarker(
+                [47.557, 7.621],
+                {"bubblingMouseEvents": true, "color": "#ffefa5ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffefa5ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_624c3fadf45f9249c037b10410b8ceae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bd26defeef9fbaf722c7509aeab74141 = $(`<div id="html_bd26defeef9fbaf722c7509aeab74141" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Rheinstrasse<br>Within-city rank: 16 of 77<br>Mean predicted probability: 7.61%<br>Observed test records: 8,614<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_624c3fadf45f9249c037b10410b8ceae.setContent(html_bd26defeef9fbaf722c7509aeab74141);
+            
+        
+
+        circle_marker_ed7803c7c43436339429ff5a479e7c58.bindPopup(popup_624c3fadf45f9249c037b10410b8ceae)
+        ;
+
+        
+    
+    
+            circle_marker_ed7803c7c43436339429ff5a479e7c58.bindTooltip(
+                `<div>
+                     Basel — Station Rheinstrasse — 7.61%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_580ea3bb09361b7eccd0ffdfe7102114 = L.circleMarker(
+                [47.571, 7.608],
+                {"bubblingMouseEvents": true, "color": "#fff0a6ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff0a6ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_b8e22a233ffa14679632579128c6a4dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d5e1dba4d3b885994f333b6ec43e0866 = $(`<div id="html_d5e1dba4d3b885994f333b6ec43e0866" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Schorenmatten<br>Within-city rank: 17 of 77<br>Mean predicted probability: 7.61%<br>Observed test records: 8,516<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_b8e22a233ffa14679632579128c6a4dc.setContent(html_d5e1dba4d3b885994f333b6ec43e0866);
+            
+        
+
+        circle_marker_580ea3bb09361b7eccd0ffdfe7102114.bindPopup(popup_b8e22a233ffa14679632579128c6a4dc)
+        ;
+
+        
+    
+    
+            circle_marker_580ea3bb09361b7eccd0ffdfe7102114.bindTooltip(
+                `<div>
+                     Basel — Station Schorenmatten — 7.61%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_907133759058d1577b66282765df6400 = L.circleMarker(
+                [47.561, 7.616],
+                {"bubblingMouseEvents": true, "color": "#fff0a6ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff0a6ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_ec2a6bc180792825d36126c70c25b217 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cfd0ceb9f8eb2fb41b51cdc40977ecb4 = $(`<div id="html_cfd0ceb9f8eb2fb41b51cdc40977ecb4" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Rankstrasse<br>Within-city rank: 18 of 77<br>Mean predicted probability: 7.61%<br>Observed test records: 8,746<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_ec2a6bc180792825d36126c70c25b217.setContent(html_cfd0ceb9f8eb2fb41b51cdc40977ecb4);
+            
+        
+
+        circle_marker_907133759058d1577b66282765df6400.bindPopup(popup_ec2a6bc180792825d36126c70c25b217)
+        ;
+
+        
+    
+    
+            circle_marker_907133759058d1577b66282765df6400.bindTooltip(
+                `<div>
+                     Basel — Station Rankstrasse — 7.61%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a19748e7e3743d59a221ac218fd5f405 = L.circleMarker(
+                [47.545, 7.627],
+                {"bubblingMouseEvents": true, "color": "#fff0a7ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff0a7ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_686e744a0d15a45c70256dd2f7cc7260 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8ba62786caf8a8e6eb545c05dba8053e = $(`<div id="html_8ba62786caf8a8e6eb545c05dba8053e" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: .Birsfelden.<br>Within-city rank: 19 of 77<br>Mean predicted probability: 7.60%<br>Observed test records: 5,516<br>Observed months: 10 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_686e744a0d15a45c70256dd2f7cc7260.setContent(html_8ba62786caf8a8e6eb545c05dba8053e);
+            
+        
+
+        circle_marker_a19748e7e3743d59a221ac218fd5f405.bindPopup(popup_686e744a0d15a45c70256dd2f7cc7260)
+        ;
+
+        
+    
+    
+            circle_marker_a19748e7e3743d59a221ac218fd5f405.bindTooltip(
+                `<div>
+                     Basel — Station .Birsfelden. — 7.60%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f8dc32a0e30d17f3f03f4771c8f9389 = L.circleMarker(
+                [47.566, 7.607],
+                {"bubblingMouseEvents": true, "color": "#fff0a8ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff0a8ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_820abea390bcf3df54e770f6ae665bd1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e33472e1e5c20ad387e1f490ae0eda95 = $(`<div id="html_e33472e1e5c20ad387e1f490ae0eda95" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Bahnhof<br>Within-city rank: 20 of 77<br>Mean predicted probability: 7.59%<br>Observed test records: 8,688<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_820abea390bcf3df54e770f6ae665bd1.setContent(html_e33472e1e5c20ad387e1f490ae0eda95);
+            
+        
+
+        circle_marker_3f8dc32a0e30d17f3f03f4771c8f9389.bindPopup(popup_820abea390bcf3df54e770f6ae665bd1)
+        ;
+
+        
+    
+    
+            circle_marker_3f8dc32a0e30d17f3f03f4771c8f9389.bindTooltip(
+                `<div>
+                     Basel — Station Bahnhof — 7.59%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e8d1804ab99a864bcdb73562829f3d70 = L.circleMarker(
+                [47.548, 7.621],
+                {"bubblingMouseEvents": true, "color": "#fff1a8ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff1a8ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_dbaf92580cf761c8d4da3943c0334de3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dbc1b23da96db515add960240036ddb8 = $(`<div id="html_dbc1b23da96db515add960240036ddb8" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Lehenmattstrasse<br>Within-city rank: 21 of 77<br>Mean predicted probability: 7.59%<br>Observed test records: 7,335<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_dbaf92580cf761c8d4da3943c0334de3.setContent(html_dbc1b23da96db515add960240036ddb8);
+            
+        
+
+        circle_marker_e8d1804ab99a864bcdb73562829f3d70.bindPopup(popup_dbaf92580cf761c8d4da3943c0334de3)
+        ;
+
+        
+    
+    
+            circle_marker_e8d1804ab99a864bcdb73562829f3d70.bindTooltip(
+                `<div>
+                     Basel — Station Lehenmattstrasse — 7.59%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_18c79ff86fbdc1b54a9c546fb8f01ca3 = L.circleMarker(
+                [47.586, 7.589],
+                {"bubblingMouseEvents": true, "color": "#fff1a8ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff1a8ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_d9d22e6e86549a8aaf7ecf3781a9cac2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8ebd4c4150edec053c492079956bddb = $(`<div id="html_d8ebd4c4150edec053c492079956bddb" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Westquaistrasse<br>Within-city rank: 22 of 77<br>Mean predicted probability: 7.59%<br>Observed test records: 8,275<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_d9d22e6e86549a8aaf7ecf3781a9cac2.setContent(html_d8ebd4c4150edec053c492079956bddb);
+            
+        
+
+        circle_marker_18c79ff86fbdc1b54a9c546fb8f01ca3.bindPopup(popup_d9d22e6e86549a8aaf7ecf3781a9cac2)
+        ;
+
+        
+    
+    
+            circle_marker_18c79ff86fbdc1b54a9c546fb8f01ca3.bindTooltip(
+                `<div>
+                     Basel — Station Westquaistrasse — 7.59%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ac172759944a8aa3835048cb59304374 = L.circleMarker(
+                [47.54, 7.622],
+                {"bubblingMouseEvents": true, "color": "#fff1aaff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff1aaff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_3034642f7abcba31535024afe3d395c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9515af287c6b18e0a184a853e7d9f0a7 = $(`<div id="html_9515af287c6b18e0a184a853e7d9f0a7" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Jakobsstrasse<br>Within-city rank: 23 of 77<br>Mean predicted probability: 7.57%<br>Observed test records: 6,848<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_3034642f7abcba31535024afe3d395c1.setContent(html_9515af287c6b18e0a184a853e7d9f0a7);
+            
+        
+
+        circle_marker_ac172759944a8aa3835048cb59304374.bindPopup(popup_3034642f7abcba31535024afe3d395c1)
+        ;
+
+        
+    
+    
+            circle_marker_ac172759944a8aa3835048cb59304374.bindTooltip(
+                `<div>
+                     Basel — Station Jakobsstrasse — 7.57%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_072102b2aae656326292216806969621 = L.circleMarker(
+                [47.559, 7.604],
+                {"bubblingMouseEvents": true, "color": "#fff2abff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff2abff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_7c236c989b360231aba6a07c4555ed84 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f45a1d02dc1a9abc8abad636e1b3e608 = $(`<div id="html_f45a1d02dc1a9abc8abad636e1b3e608" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 103<br>Within-city rank: 24 of 77<br>Mean predicted probability: 7.56%<br>Observed test records: 8,565<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_7c236c989b360231aba6a07c4555ed84.setContent(html_f45a1d02dc1a9abc8abad636e1b3e608);
+            
+        
+
+        circle_marker_072102b2aae656326292216806969621.bindPopup(popup_7c236c989b360231aba6a07c4555ed84)
+        ;
+
+        
+    
+    
+            circle_marker_072102b2aae656326292216806969621.bindTooltip(
+                `<div>
+                     Basel — Station 103 — 7.56%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0ba8b6107e8b47552df2f93419e2978 = L.circleMarker(
+                [47.543, 7.617],
+                {"bubblingMouseEvents": true, "color": "#fff2abff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff2abff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_2cbfc6eeb4d1bda110042a96abda8fa8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2d3ac743714a83cf8fe7b69888ede28d = $(`<div id="html_2d3ac743714a83cf8fe7b69888ede28d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 2<br>Within-city rank: 25 of 77<br>Mean predicted probability: 7.56%<br>Observed test records: 8,720<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_2cbfc6eeb4d1bda110042a96abda8fa8.setContent(html_2d3ac743714a83cf8fe7b69888ede28d);
+            
+        
+
+        circle_marker_d0ba8b6107e8b47552df2f93419e2978.bindPopup(popup_2cbfc6eeb4d1bda110042a96abda8fa8)
+        ;
+
+        
+    
+    
+            circle_marker_d0ba8b6107e8b47552df2f93419e2978.bindTooltip(
+                `<div>
+                     Basel — Station 2 — 7.56%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc7f79e734efd91b88773faf9751694e = L.circleMarker(
+                [47.552, 7.609],
+                {"bubblingMouseEvents": true, "color": "#fff2abff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff2abff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_208994d2f996fa369372f89fc97e240c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7c0604916e9f122a48966c79218df2ef = $(`<div id="html_7c0604916e9f122a48966c79218df2ef" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Gellertstrasse<br>Within-city rank: 26 of 77<br>Mean predicted probability: 7.56%<br>Observed test records: 6,952<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_208994d2f996fa369372f89fc97e240c.setContent(html_7c0604916e9f122a48966c79218df2ef);
+            
+        
+
+        circle_marker_cc7f79e734efd91b88773faf9751694e.bindPopup(popup_208994d2f996fa369372f89fc97e240c)
+        ;
+
+        
+    
+    
+            circle_marker_cc7f79e734efd91b88773faf9751694e.bindTooltip(
+                `<div>
+                     Basel — Station Gellertstrasse — 7.56%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_568b51fe41505dd7f215c2166d1277bb = L.circleMarker(
+                [47.571, 7.593],
+                {"bubblingMouseEvents": true, "color": "#fff2abff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff2abff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_307f7f0be79e5d13ff4a94f3d3831968 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e0c3b000e65a504bf2b59efd364de686 = $(`<div id="html_e0c3b000e65a504bf2b59efd364de686" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Horburgstrasse<br>Within-city rank: 27 of 77<br>Mean predicted probability: 7.56%<br>Observed test records: 8,729<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_307f7f0be79e5d13ff4a94f3d3831968.setContent(html_e0c3b000e65a504bf2b59efd364de686);
+            
+        
+
+        circle_marker_568b51fe41505dd7f215c2166d1277bb.bindPopup(popup_307f7f0be79e5d13ff4a94f3d3831968)
+        ;
+
+        
+    
+    
+            circle_marker_568b51fe41505dd7f215c2166d1277bb.bindTooltip(
+                `<div>
+                     Basel — Station Horburgstrasse — 7.56%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9f8e297d15d55a1dab48d5805f9b5292 = L.circleMarker(
+                [47.567, 7.595],
+                {"bubblingMouseEvents": true, "color": "#fff2acff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff2acff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_2a7bf3bcde6e4f5ba41fb40f7f3a17c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d45a9fb7cbd3b855129b344ff965fed9 = $(`<div id="html_d45a9fb7cbd3b855129b344ff965fed9" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Feldbergstrasse<br>Within-city rank: 28 of 77<br>Mean predicted probability: 7.55%<br>Observed test records: 8,706<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_2a7bf3bcde6e4f5ba41fb40f7f3a17c2.setContent(html_d45a9fb7cbd3b855129b344ff965fed9);
+            
+        
+
+        circle_marker_9f8e297d15d55a1dab48d5805f9b5292.bindPopup(popup_2a7bf3bcde6e4f5ba41fb40f7f3a17c2)
+        ;
+
+        
+    
+    
+            circle_marker_9f8e297d15d55a1dab48d5805f9b5292.bindTooltip(
+                `<div>
+                     Basel — Station Feldbergstrasse — 7.55%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_873135c70262e869ae58bae3d91d20e6 = L.circleMarker(
+                [47.543, 7.614],
+                {"bubblingMouseEvents": true, "color": "#fff2acff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff2acff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_ee79422e37820e805fb5080f9df6dfb2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e81cdfb12fd08e92065f5c3938a6acd4 = $(`<div id="html_e81cdfb12fd08e92065f5c3938a6acd4" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 8<br>Within-city rank: 29 of 77<br>Mean predicted probability: 7.55%<br>Observed test records: 8,741<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_ee79422e37820e805fb5080f9df6dfb2.setContent(html_e81cdfb12fd08e92065f5c3938a6acd4);
+            
+        
+
+        circle_marker_873135c70262e869ae58bae3d91d20e6.bindPopup(popup_ee79422e37820e805fb5080f9df6dfb2)
+        ;
+
+        
+    
+    
+            circle_marker_873135c70262e869ae58bae3d91d20e6.bindTooltip(
+                `<div>
+                     Basel — Station 8 — 7.55%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_94e94220bfb895c3a4e2b70f228bfe18 = L.circleMarker(
+                [47.545, 7.612],
+                {"bubblingMouseEvents": true, "color": "#fff2acff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff2acff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_8813f0ddbe3a0bea527849a4f6dcbee5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9db397494f78ead30deea8d93cecaab9 = $(`<div id="html_9db397494f78ead30deea8d93cecaab9" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 3<br>Within-city rank: 30 of 77<br>Mean predicted probability: 7.55%<br>Observed test records: 8,729<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_8813f0ddbe3a0bea527849a4f6dcbee5.setContent(html_9db397494f78ead30deea8d93cecaab9);
+            
+        
+
+        circle_marker_94e94220bfb895c3a4e2b70f228bfe18.bindPopup(popup_8813f0ddbe3a0bea527849a4f6dcbee5)
+        ;
+
+        
+    
+    
+            circle_marker_94e94220bfb895c3a4e2b70f228bfe18.bindTooltip(
+                `<div>
+                     Basel — Station 3 — 7.55%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_170ab4c56aa087a5cc7389d38a2a3413 = L.circleMarker(
+                [47.542, 7.614],
+                {"bubblingMouseEvents": true, "color": "#fff2acff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff2acff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_2df2e5515b0ae0ceac37635087d82262 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f7e14b0aa32c7cdf56e2add3359809e9 = $(`<div id="html_f7e14b0aa32c7cdf56e2add3359809e9" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 7<br>Within-city rank: 31 of 77<br>Mean predicted probability: 7.55%<br>Observed test records: 8,389<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_2df2e5515b0ae0ceac37635087d82262.setContent(html_f7e14b0aa32c7cdf56e2add3359809e9);
+            
+        
+
+        circle_marker_170ab4c56aa087a5cc7389d38a2a3413.bindPopup(popup_2df2e5515b0ae0ceac37635087d82262)
+        ;
+
+        
+    
+    
+            circle_marker_170ab4c56aa087a5cc7389d38a2a3413.bindTooltip(
+                `<div>
+                     Basel — Station 7 — 7.55%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97bfebc2802add48232d633b7ee64bc3 = L.circleMarker(
+                [47.544, 7.612],
+                {"bubblingMouseEvents": true, "color": "#fff3adff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff3adff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_0e36997f36e9d22985ef3057d3d7315f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b59f0a5407e6887b46a7c39ca2964c44 = $(`<div id="html_b59f0a5407e6887b46a7c39ca2964c44" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 4<br>Within-city rank: 32 of 77<br>Mean predicted probability: 7.55%<br>Observed test records: 6,229<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_0e36997f36e9d22985ef3057d3d7315f.setContent(html_b59f0a5407e6887b46a7c39ca2964c44);
+            
+        
+
+        circle_marker_97bfebc2802add48232d633b7ee64bc3.bindPopup(popup_0e36997f36e9d22985ef3057d3d7315f)
+        ;
+
+        
+    
+    
+            circle_marker_97bfebc2802add48232d633b7ee64bc3.bindTooltip(
+                `<div>
+                     Basel — Station 4 — 7.55%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2fe97ee2f79b9d0d95f912672ceddbca = L.circleMarker(
+                [47.557, 7.601],
+                {"bubblingMouseEvents": true, "color": "#fff3adff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff3adff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_d905ec013b58c561c622192dc147d7cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_867cc40e4bd0250159cec7861a713731 = $(`<div id="html_867cc40e4bd0250159cec7861a713731" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Schaffhauserrheinweg<br>Within-city rank: 33 of 77<br>Mean predicted probability: 7.55%<br>Observed test records: 5,416<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_d905ec013b58c561c622192dc147d7cb.setContent(html_867cc40e4bd0250159cec7861a713731);
+            
+        
+
+        circle_marker_2fe97ee2f79b9d0d95f912672ceddbca.bindPopup(popup_d905ec013b58c561c622192dc147d7cb)
+        ;
+
+        
+    
+    
+            circle_marker_2fe97ee2f79b9d0d95f912672ceddbca.bindTooltip(
+                `<div>
+                     Basel — Station Schaffhauserrheinweg — 7.55%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58db3fdf97a9fcb0b5ec8658d174d872 = L.circleMarker(
+                [47.562, 7.595],
+                {"bubblingMouseEvents": true, "color": "#fff3adff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff3adff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_5568db1bb5a13c1804f31a2e49d2de0e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_57e186e5ea55fc269cb2a13f3cf6af03 = $(`<div id="html_57e186e5ea55fc269cb2a13f3cf6af03" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Claraplatz<br>Within-city rank: 34 of 77<br>Mean predicted probability: 7.54%<br>Observed test records: 7,456<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_5568db1bb5a13c1804f31a2e49d2de0e.setContent(html_57e186e5ea55fc269cb2a13f3cf6af03);
+            
+        
+
+        circle_marker_58db3fdf97a9fcb0b5ec8658d174d872.bindPopup(popup_5568db1bb5a13c1804f31a2e49d2de0e)
+        ;
+
+        
+    
+    
+            circle_marker_58db3fdf97a9fcb0b5ec8658d174d872.bindTooltip(
+                `<div>
+                     Basel — Station Claraplatz — 7.54%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f532c6d9a1e59e96596d1ec635dd3398 = L.circleMarker(
+                [47.544, 7.608],
+                {"bubblingMouseEvents": true, "color": "#fff3aeff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff3aeff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_9410c4c5e9ef71c6e5b4b499cb594664 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e3c42d5002f7a8528dfda7170332b23 = $(`<div id="html_9e3c42d5002f7a8528dfda7170332b23" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 5<br>Within-city rank: 35 of 77<br>Mean predicted probability: 7.54%<br>Observed test records: 8,746<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_9410c4c5e9ef71c6e5b4b499cb594664.setContent(html_9e3c42d5002f7a8528dfda7170332b23);
+            
+        
+
+        circle_marker_f532c6d9a1e59e96596d1ec635dd3398.bindPopup(popup_9410c4c5e9ef71c6e5b4b499cb594664)
+        ;
+
+        
+    
+    
+            circle_marker_f532c6d9a1e59e96596d1ec635dd3398.bindTooltip(
+                `<div>
+                     Basel — Station 5 — 7.54%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97e7e8f8983bda0874edc33369101627 = L.circleMarker(
+                [47.571, 7.585],
+                {"bubblingMouseEvents": true, "color": "#fff3aeff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff3aeff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_844e83bfd5925c398e66f65f8987fe34 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d1cc77fe0bf57e1bed5414e83b11f53d = $(`<div id="html_d1cc77fe0bf57e1bed5414e83b11f53d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Dreirosenbrücke<br>Within-city rank: 36 of 77<br>Mean predicted probability: 7.53%<br>Observed test records: 8,751<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_844e83bfd5925c398e66f65f8987fe34.setContent(html_d1cc77fe0bf57e1bed5414e83b11f53d);
+            
+        
+
+        circle_marker_97e7e8f8983bda0874edc33369101627.bindPopup(popup_844e83bfd5925c398e66f65f8987fe34)
+        ;
+
+        
+    
+    
+            circle_marker_97e7e8f8983bda0874edc33369101627.bindTooltip(
+                `<div>
+                     Basel — Station Dreirosenbrücke — 7.53%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a448bfb7a6f1c087f1bcde166266189 = L.circleMarker(
+                [47.561, 7.593],
+                {"bubblingMouseEvents": true, "color": "#fff3aeff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff3aeff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_2ea52182ac04101375faffbd3401ef41 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_122eb8be0f65f601dd105488d403c664 = $(`<div id="html_122eb8be0f65f601dd105488d403c664" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: MeteoblueDach<br>Within-city rank: 37 of 77<br>Mean predicted probability: 7.53%<br>Observed test records: 8,528<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_2ea52182ac04101375faffbd3401ef41.setContent(html_122eb8be0f65f601dd105488d403c664);
+            
+        
+
+        circle_marker_2a448bfb7a6f1c087f1bcde166266189.bindPopup(popup_2ea52182ac04101375faffbd3401ef41)
+        ;
+
+        
+    
+    
+            circle_marker_2a448bfb7a6f1c087f1bcde166266189.bindTooltip(
+                `<div>
+                     Basel — Station MeteoblueDach — 7.53%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0bf72e2230540989de4521ef63c08659 = L.circleMarker(
+                [47.569, 7.586],
+                {"bubblingMouseEvents": true, "color": "#fff3afff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff3afff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_20b5adb4ca3f27df8ab1375878809d1f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0192ff2b3b7e6b5d9648fdf31d4aa614 = $(`<div id="html_0192ff2b3b7e6b5d9648fdf31d4aa614" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 148<br>Within-city rank: 38 of 77<br>Mean predicted probability: 7.53%<br>Observed test records: 8,241<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_20b5adb4ca3f27df8ab1375878809d1f.setContent(html_0192ff2b3b7e6b5d9648fdf31d4aa614);
+            
+        
+
+        circle_marker_0bf72e2230540989de4521ef63c08659.bindPopup(popup_20b5adb4ca3f27df8ab1375878809d1f)
+        ;
+
+        
+    
+    
+            circle_marker_0bf72e2230540989de4521ef63c08659.bindTooltip(
+                `<div>
+                     Basel — Station 148 — 7.53%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_720c40c85f1ab2eef7b90e06ed423064 = L.circleMarker(
+                [47.549, 7.601],
+                {"bubblingMouseEvents": true, "color": "#fff4afff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff4afff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_13e5b74b6bd6eccef36a590530749f27 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b6bbed0c065e14d5b11fc544246d47f = $(`<div id="html_8b6bbed0c065e14d5b11fc544246d47f" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Sevogelstrasse<br>Within-city rank: 39 of 77<br>Mean predicted probability: 7.53%<br>Observed test records: 8,164<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_13e5b74b6bd6eccef36a590530749f27.setContent(html_8b6bbed0c065e14d5b11fc544246d47f);
+            
+        
+
+        circle_marker_720c40c85f1ab2eef7b90e06ed423064.bindPopup(popup_13e5b74b6bd6eccef36a590530749f27)
+        ;
+
+        
+    
+    
+            circle_marker_720c40c85f1ab2eef7b90e06ed423064.bindTooltip(
+                `<div>
+                     Basel — Station Sevogelstrasse — 7.53%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_80cc851125b5b633d7e4ebf7b1c5f78e = L.circleMarker(
+                [47.566, 7.587],
+                {"bubblingMouseEvents": true, "color": "#fff4afff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff4afff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_dddba00b178e2ef141a665a4679c2874 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9bd98819ac7fb973cfc997d393a2b83 = $(`<div id="html_e9bd98819ac7fb973cfc997d393a2b83" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 82<br>Within-city rank: 40 of 77<br>Mean predicted probability: 7.53%<br>Observed test records: 7,285<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_dddba00b178e2ef141a665a4679c2874.setContent(html_e9bd98819ac7fb973cfc997d393a2b83);
+            
+        
+
+        circle_marker_80cc851125b5b633d7e4ebf7b1c5f78e.bindPopup(popup_dddba00b178e2ef141a665a4679c2874)
+        ;
+
+        
+    
+    
+            circle_marker_80cc851125b5b633d7e4ebf7b1c5f78e.bindTooltip(
+                `<div>
+                     Basel — Station 82 — 7.53%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a4f2e1a68058098cf9ab6c5bc7641a26 = L.circleMarker(
+                [47.571, 7.581],
+                {"bubblingMouseEvents": true, "color": "#fff4b0ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff4b0ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_5c0460cb9f163cae2dfa2aabe6ced84d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f177f7f7377882d06694ced693662da3 = $(`<div id="html_f177f7f7377882d06694ced693662da3" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Johanntunnel<br>Within-city rank: 41 of 77<br>Mean predicted probability: 7.52%<br>Observed test records: 6,658<br>Observed months: 10 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_5c0460cb9f163cae2dfa2aabe6ced84d.setContent(html_f177f7f7377882d06694ced693662da3);
+            
+        
+
+        circle_marker_a4f2e1a68058098cf9ab6c5bc7641a26.bindPopup(popup_5c0460cb9f163cae2dfa2aabe6ced84d)
+        ;
+
+        
+    
+    
+            circle_marker_a4f2e1a68058098cf9ab6c5bc7641a26.bindTooltip(
+                `<div>
+                     Basel — Station Johanntunnel — 7.52%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_02d3df23f5fbfef59e95abc89d58be20 = L.circleMarker(
+                [47.544, 7.603],
+                {"bubblingMouseEvents": true, "color": "#fff4b0ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff4b0ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_3213bc0d57b21942eedf23f6ff1bdca2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_440ec671f16116b1c62dbdcb0cd9b82e = $(`<div id="html_440ec671f16116b1c62dbdcb0cd9b82e" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: 6<br>Within-city rank: 42 of 77<br>Mean predicted probability: 7.52%<br>Observed test records: 8,745<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_3213bc0d57b21942eedf23f6ff1bdca2.setContent(html_440ec671f16116b1c62dbdcb0cd9b82e);
+            
+        
+
+        circle_marker_02d3df23f5fbfef59e95abc89d58be20.bindPopup(popup_3213bc0d57b21942eedf23f6ff1bdca2)
+        ;
+
+        
+    
+    
+            circle_marker_02d3df23f5fbfef59e95abc89d58be20.bindTooltip(
+                `<div>
+                     Basel — Station 6 — 7.52%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_388a2437a119f16a17900b58f82ff45f = L.circleMarker(
+                [47.539, 7.606],
+                {"bubblingMouseEvents": true, "color": "#fff4b0ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff4b0ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_4ac244de626067667c264c0934200793 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a88fdd3190569f90d29f44740ef5e24d = $(`<div id="html_a88fdd3190569f90d29f44740ef5e24d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Münchensteinerstrasse<br>Within-city rank: 43 of 77<br>Mean predicted probability: 7.51%<br>Observed test records: 7,094<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_4ac244de626067667c264c0934200793.setContent(html_a88fdd3190569f90d29f44740ef5e24d);
+            
+        
+
+        circle_marker_388a2437a119f16a17900b58f82ff45f.bindPopup(popup_4ac244de626067667c264c0934200793)
+        ;
+
+        
+    
+    
+            circle_marker_388a2437a119f16a17900b58f82ff45f.bindTooltip(
+                `<div>
+                     Basel — Station Münchensteinerstrasse — 7.51%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1c3d2ace4e2274e06dda5547f289aad9 = L.circleMarker(
+                [47.556, 7.592],
+                {"bubblingMouseEvents": true, "color": "#fff4b0ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff4b0ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_9094dccee003a91b32db8a08ebef6db7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9db4398b0e3f15007fb6e855d5231d48 = $(`<div id="html_9db4398b0e3f15007fb6e855d5231d48" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Münsterplatz<br>Within-city rank: 44 of 77<br>Mean predicted probability: 7.51%<br>Observed test records: 6,796<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_9094dccee003a91b32db8a08ebef6db7.setContent(html_9db4398b0e3f15007fb6e855d5231d48);
+            
+        
+
+        circle_marker_1c3d2ace4e2274e06dda5547f289aad9.bindPopup(popup_9094dccee003a91b32db8a08ebef6db7)
+        ;
+
+        
+    
+    
+            circle_marker_1c3d2ace4e2274e06dda5547f289aad9.bindTooltip(
+                `<div>
+                     Basel — Station Münsterplatz — 7.51%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d4d56a7bfe28c05282ccfddb3e57e3a = L.circleMarker(
+                [47.551, 7.595],
+                {"bubblingMouseEvents": true, "color": "#fff4b1ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff4b1ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_3fdf3fdd6c6cf6091bfb01d8f80f5d91 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5f7cf84beccdf9d942ddf6cc231db75 = $(`<div id="html_f5f7cf84beccdf9d942ddf6cc231db75" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Aeschenplatz<br>Within-city rank: 45 of 77<br>Mean predicted probability: 7.51%<br>Observed test records: 8,653<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_3fdf3fdd6c6cf6091bfb01d8f80f5d91.setContent(html_f5f7cf84beccdf9d942ddf6cc231db75);
+            
+        
+
+        circle_marker_4d4d56a7bfe28c05282ccfddb3e57e3a.bindPopup(popup_3fdf3fdd6c6cf6091bfb01d8f80f5d91)
+        ;
+
+        
+    
+    
+            circle_marker_4d4d56a7bfe28c05282ccfddb3e57e3a.bindTooltip(
+                `<div>
+                     Basel — Station Aeschenplatz — 7.51%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5aaeead23f84d6442dba440f1d0553dd = L.circleMarker(
+                [47.576, 7.574],
+                {"bubblingMouseEvents": true, "color": "#fff4b1ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff4b1ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_faed55ce8addd812163f975883c38496 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_34c6ada4dfcd73d7c0a7c8db81164cb6 = $(`<div id="html_34c6ada4dfcd73d7c0a7c8db81164cb6" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Kohlenstrasse<br>Within-city rank: 46 of 77<br>Mean predicted probability: 7.51%<br>Observed test records: 8,580<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_faed55ce8addd812163f975883c38496.setContent(html_34c6ada4dfcd73d7c0a7c8db81164cb6);
+            
+        
+
+        circle_marker_5aaeead23f84d6442dba440f1d0553dd.bindPopup(popup_faed55ce8addd812163f975883c38496)
+        ;
+
+        
+    
+    
+            circle_marker_5aaeead23f84d6442dba440f1d0553dd.bindTooltip(
+                `<div>
+                     Basel — Station Kohlenstrasse — 7.51%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cbf48876db2f8c975e2d0153ca3d1d15 = L.circleMarker(
+                [47.566, 7.582],
+                {"bubblingMouseEvents": true, "color": "#fff4b1ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff4b1ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_6a62810bdd79b3c498df2e3cb2ad64dd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dd8ac0b4cc64edf215e320ba7ffca965 = $(`<div id="html_dd8ac0b4cc64edf215e320ba7ffca965" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Johann<br>Within-city rank: 47 of 77<br>Mean predicted probability: 7.51%<br>Observed test records: 8,728<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_6a62810bdd79b3c498df2e3cb2ad64dd.setContent(html_dd8ac0b4cc64edf215e320ba7ffca965);
+            
+        
+
+        circle_marker_cbf48876db2f8c975e2d0153ca3d1d15.bindPopup(popup_6a62810bdd79b3c498df2e3cb2ad64dd)
+        ;
+
+        
+    
+    
+            circle_marker_cbf48876db2f8c975e2d0153ca3d1d15.bindTooltip(
+                `<div>
+                     Basel — Station Johann — 7.51%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_38f57ad351419db3b4f488f69d68cb9b = L.circleMarker(
+                [47.563, 7.583],
+                {"bubblingMouseEvents": true, "color": "#fff5b2ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff5b2ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_8806ffe3dd8cf7564c0685b384541bbe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_448cb5290ad2379c77f5be6dd201a716 = $(`<div id="html_448cb5290ad2379c77f5be6dd201a716" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Spitalstrasse<br>Within-city rank: 48 of 77<br>Mean predicted probability: 7.50%<br>Observed test records: 8,692<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_8806ffe3dd8cf7564c0685b384541bbe.setContent(html_448cb5290ad2379c77f5be6dd201a716);
+            
+        
+
+        circle_marker_38f57ad351419db3b4f488f69d68cb9b.bindPopup(popup_8806ffe3dd8cf7564c0685b384541bbe)
+        ;
+
+        
+    
+    
+            circle_marker_38f57ad351419db3b4f488f69d68cb9b.bindTooltip(
+                `<div>
+                     Basel — Station Spitalstrasse — 7.50%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fd85760c96d43b6192d1c2837eb25b0a = L.circleMarker(
+                [47.571, 7.575],
+                {"bubblingMouseEvents": true, "color": "#fff5b2ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff5b2ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_711734affa66a8c291936371abd122eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_317d9ca0e1183b0ec856a6f6e8ca585b = $(`<div id="html_317d9ca0e1183b0ec856a6f6e8ca585b" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Hüningerstrasse<br>Within-city rank: 49 of 77<br>Mean predicted probability: 7.50%<br>Observed test records: 4,612<br>Observed months: 7 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_711734affa66a8c291936371abd122eb.setContent(html_317d9ca0e1183b0ec856a6f6e8ca585b);
+            
+        
+
+        circle_marker_fd85760c96d43b6192d1c2837eb25b0a.bindPopup(popup_711734affa66a8c291936371abd122eb)
+        ;
+
+        
+    
+    
+            circle_marker_fd85760c96d43b6192d1c2837eb25b0a.bindTooltip(
+                `<div>
+                     Basel — Station Hüningerstrasse — 7.50%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c11cef0cc939cca4ace85a2b6fc09ee1 = L.circleMarker(
+                [47.539, 7.601],
+                {"bubblingMouseEvents": true, "color": "#fff5b2ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff5b2ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_c4f510bbcf9e26f48bca6d0611912fd9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d9545b5a75067792d7b8d47e46136c0 = $(`<div id="html_0d9545b5a75067792d7b8d47e46136c0" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Falkensteinerstrasse<br>Within-city rank: 50 of 77<br>Mean predicted probability: 7.50%<br>Observed test records: 7,258<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_c4f510bbcf9e26f48bca6d0611912fd9.setContent(html_0d9545b5a75067792d7b8d47e46136c0);
+            
+        
+
+        circle_marker_c11cef0cc939cca4ace85a2b6fc09ee1.bindPopup(popup_c4f510bbcf9e26f48bca6d0611912fd9)
+        ;
+
+        
+    
+    
+            circle_marker_c11cef0cc939cca4ace85a2b6fc09ee1.bindTooltip(
+                `<div>
+                     Basel — Station Falkensteinerstrasse — 7.50%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f75021b528c783479ef02c7d736402d = L.circleMarker(
+                [47.548, 7.59],
+                {"bubblingMouseEvents": true, "color": "#fff5b4ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff5b4ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_39a1252b9b1348c866e7b71801baa3da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_53911f845d15839a51dea6a350b60394 = $(`<div id="html_53911f845d15839a51dea6a350b60394" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: SBB<br>Within-city rank: 51 of 77<br>Mean predicted probability: 7.49%<br>Observed test records: 8,737<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_39a1252b9b1348c866e7b71801baa3da.setContent(html_53911f845d15839a51dea6a350b60394);
+            
+        
+
+        circle_marker_1f75021b528c783479ef02c7d736402d.bindPopup(popup_39a1252b9b1348c866e7b71801baa3da)
+        ;
+
+        
+    
+    
+            circle_marker_1f75021b528c783479ef02c7d736402d.bindTooltip(
+                `<div>
+                     Basel — Station SBB — 7.49%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a0dfb6d9d751ba5c7c52616b0c6582f2 = L.circleMarker(
+                [47.556, 7.583],
+                {"bubblingMouseEvents": true, "color": "#fff5b4ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff5b4ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_09360c60ddc729ab3a4b814859b45828 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_099473663ce5eb59d78646156467273a = $(`<div id="html_099473663ce5eb59d78646156467273a" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Kornhausgasse<br>Within-city rank: 52 of 77<br>Mean predicted probability: 7.49%<br>Observed test records: 7,479<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_09360c60ddc729ab3a4b814859b45828.setContent(html_099473663ce5eb59d78646156467273a);
+            
+        
+
+        circle_marker_a0dfb6d9d751ba5c7c52616b0c6582f2.bindPopup(popup_09360c60ddc729ab3a4b814859b45828)
+        ;
+
+        
+    
+    
+            circle_marker_a0dfb6d9d751ba5c7c52616b0c6582f2.bindTooltip(
+                `<div>
+                     Basel — Station Kornhausgasse — 7.49%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f53f2d67b8fbdb3ed5d64f956b1fba3e = L.circleMarker(
+                [47.551, 7.587],
+                {"bubblingMouseEvents": true, "color": "#fff6b4ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff6b4ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_03a8172bf50e29755ec0ae2518a2dd7f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_461e535d0f78c1c693c9f41162579f3d = $(`<div id="html_461e535d0f78c1c693c9f41162579f3d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Heuwaage<br>Within-city rank: 53 of 77<br>Mean predicted probability: 7.48%<br>Observed test records: 8,745<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_03a8172bf50e29755ec0ae2518a2dd7f.setContent(html_461e535d0f78c1c693c9f41162579f3d);
+            
+        
+
+        circle_marker_f53f2d67b8fbdb3ed5d64f956b1fba3e.bindPopup(popup_03a8172bf50e29755ec0ae2518a2dd7f)
+        ;
+
+        
+    
+    
+            circle_marker_f53f2d67b8fbdb3ed5d64f956b1fba3e.bindTooltip(
+                `<div>
+                     Basel — Station Heuwaage — 7.48%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d5244dba266212c7227e023f4c6ea07c = L.circleMarker(
+                [47.566, 7.573],
+                {"bubblingMouseEvents": true, "color": "#fff6b4ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff6b4ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_a7688c474728587c61e618dc4c49968d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_725bccc719be778b5ded9ebdfc9f6a89 = $(`<div id="html_725bccc719be778b5ded9ebdfc9f6a89" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Kannenfeldstrasse<br>Within-city rank: 54 of 77<br>Mean predicted probability: 7.48%<br>Observed test records: 7,850<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_a7688c474728587c61e618dc4c49968d.setContent(html_725bccc719be778b5ded9ebdfc9f6a89);
+            
+        
+
+        circle_marker_d5244dba266212c7227e023f4c6ea07c.bindPopup(popup_a7688c474728587c61e618dc4c49968d)
+        ;
+
+        
+    
+    
+            circle_marker_d5244dba266212c7227e023f4c6ea07c.bindTooltip(
+                `<div>
+                     Basel — Station Kannenfeldstrasse — 7.48%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f969fd10b6b48357a94b5e50d139b842 = L.circleMarker(
+                [47.546, 7.589],
+                {"bubblingMouseEvents": true, "color": "#fff6b5ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff6b5ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_56560683459adf14169549fe8afbc402 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f67c44e2e85d00eae0d6678ab86fe763 = $(`<div id="html_f67c44e2e85d00eae0d6678ab86fe763" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Süd<br>Within-city rank: 55 of 77<br>Mean predicted probability: 7.48%<br>Observed test records: 8,616<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_56560683459adf14169549fe8afbc402.setContent(html_f67c44e2e85d00eae0d6678ab86fe763);
+            
+        
+
+        circle_marker_f969fd10b6b48357a94b5e50d139b842.bindPopup(popup_56560683459adf14169549fe8afbc402)
+        ;
+
+        
+    
+    
+            circle_marker_f969fd10b6b48357a94b5e50d139b842.bindTooltip(
+                `<div>
+                     Basel — Station Süd — 7.48%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a8654378e94539ecea3bc227d1b782de = L.circleMarker(
+                [47.562, 7.574],
+                {"bubblingMouseEvents": true, "color": "#fff6b5ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff6b5ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_638ec462c5ac8672ffcb37a18044685d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0809a3de77abf0b7413931ba8b657127 = $(`<div id="html_0809a3de77abf0b7413931ba8b657127" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Ring<br>Within-city rank: 56 of 77<br>Mean predicted probability: 7.47%<br>Observed test records: 8,506<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_638ec462c5ac8672ffcb37a18044685d.setContent(html_0809a3de77abf0b7413931ba8b657127);
+            
+        
+
+        circle_marker_a8654378e94539ecea3bc227d1b782de.bindPopup(popup_638ec462c5ac8672ffcb37a18044685d)
+        ;
+
+        
+    
+    
+            circle_marker_a8654378e94539ecea3bc227d1b782de.bindTooltip(
+                `<div>
+                     Basel — Station Ring — 7.47%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c2821279119ece3a2fdb956d0cc035c1 = L.circleMarker(
+                [47.566, 7.569],
+                {"bubblingMouseEvents": true, "color": "#fff6b6ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff6b6ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_f805fcb46d61e38d0a4d6d8b67e8402e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15b7e6f6ace7dca4c605c3b1b18baab3 = $(`<div id="html_15b7e6f6ace7dca4c605c3b1b18baab3" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Kannenfeldpark<br>Within-city rank: 57 of 77<br>Mean predicted probability: 7.47%<br>Observed test records: 5,716<br>Observed months: 9 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_f805fcb46d61e38d0a4d6d8b67e8402e.setContent(html_15b7e6f6ace7dca4c605c3b1b18baab3);
+            
+        
+
+        circle_marker_c2821279119ece3a2fdb956d0cc035c1.bindPopup(popup_f805fcb46d61e38d0a4d6d8b67e8402e)
+        ;
+
+        
+    
+    
+            circle_marker_c2821279119ece3a2fdb956d0cc035c1.bindTooltip(
+                `<div>
+                     Basel — Station Kannenfeldpark — 7.47%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_655ef6c1a08ff898e8ac17a327f60f53 = L.circleMarker(
+                [47.506, 7.617],
+                {"bubblingMouseEvents": true, "color": "#fff7b7ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff7b7ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_a7254d6f63bf5afc22fbfaf7d040554f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5d0a8206dec727628795b19dd06833c8 = $(`<div id="html_5d0a8206dec727628795b19dd06833c8" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Maulbeerstrasse<br>Within-city rank: 58 of 77<br>Mean predicted probability: 7.46%<br>Observed test records: 6,930<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_a7254d6f63bf5afc22fbfaf7d040554f.setContent(html_5d0a8206dec727628795b19dd06833c8);
+            
+        
+
+        circle_marker_655ef6c1a08ff898e8ac17a327f60f53.bindPopup(popup_a7254d6f63bf5afc22fbfaf7d040554f)
+        ;
+
+        
+    
+    
+            circle_marker_655ef6c1a08ff898e8ac17a327f60f53.bindTooltip(
+                `<div>
+                     Basel — Station Maulbeerstrasse — 7.46%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_76d0fcb0b078d59687bb42c405e077e6 = L.circleMarker(
+                [47.557, 7.575],
+                {"bubblingMouseEvents": true, "color": "#fff7b7ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff7b7ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_7c9731c4c4a82347de278c85933924c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_379abb31a972e9c0275d36e4849a03ea = $(`<div id="html_379abb31a972e9c0275d36e4849a03ea" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Ahornstrasse<br>Within-city rank: 59 of 77<br>Mean predicted probability: 7.46%<br>Observed test records: 8,565<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_7c9731c4c4a82347de278c85933924c9.setContent(html_379abb31a972e9c0275d36e4849a03ea);
+            
+        
+
+        circle_marker_76d0fcb0b078d59687bb42c405e077e6.bindPopup(popup_7c9731c4c4a82347de278c85933924c9)
+        ;
+
+        
+    
+    
+            circle_marker_76d0fcb0b078d59687bb42c405e077e6.bindTooltip(
+                `<div>
+                     Basel — Station Ahornstrasse — 7.46%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6592608e371d63943bf09f719f99447 = L.circleMarker(
+                [47.495, 7.624],
+                {"bubblingMouseEvents": true, "color": "#fff7b7ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff7b7ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_daf5a961ee038a98123ca02747db1703 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee23a3a3eeb2a7aa2b647c8859b2033d = $(`<div id="html_ee23a3a3eeb2a7aa2b647c8859b2033d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Schäferrain<br>Within-city rank: 60 of 77<br>Mean predicted probability: 7.46%<br>Observed test records: 6,458<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_daf5a961ee038a98123ca02747db1703.setContent(html_ee23a3a3eeb2a7aa2b647c8859b2033d);
+            
+        
+
+        circle_marker_d6592608e371d63943bf09f719f99447.bindPopup(popup_daf5a961ee038a98123ca02747db1703)
+        ;
+
+        
+    
+    
+            circle_marker_d6592608e371d63943bf09f719f99447.bindTooltip(
+                `<div>
+                     Basel — Station Schäferrain — 7.46%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_425a144db696ac9bf82e7ae36f09caba = L.circleMarker(
+                [47.539, 7.586],
+                {"bubblingMouseEvents": true, "color": "#fff7b8ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff7b8ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_eac0d769447849bbb114a7b0103a77aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ea2f7c1f74de945dc6f6abef3040c241 = $(`<div id="html_ea2f7c1f74de945dc6f6abef3040c241" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Batterieweg<br>Within-city rank: 61 of 77<br>Mean predicted probability: 7.45%<br>Observed test records: 8,000<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_eac0d769447849bbb114a7b0103a77aa.setContent(html_ea2f7c1f74de945dc6f6abef3040c241);
+            
+        
+
+        circle_marker_425a144db696ac9bf82e7ae36f09caba.bindPopup(popup_eac0d769447849bbb114a7b0103a77aa)
+        ;
+
+        
+    
+    
+            circle_marker_425a144db696ac9bf82e7ae36f09caba.bindTooltip(
+                `<div>
+                     Basel — Station Batterieweg — 7.45%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_897d8e06d66758d4a974b01ea88e6925 = L.circleMarker(
+                [47.549, 7.574],
+                {"bubblingMouseEvents": true, "color": "#fff8b9ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff8b9ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_f6287e55a8be148832fbfc87bf875446 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0ab93a0d5e24cd8cd3a0ed00d0643289 = $(`<div id="html_0ab93a0d5e24cd8cd3a0ed00d0643289" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Benkenstrasse<br>Within-city rank: 62 of 77<br>Mean predicted probability: 7.44%<br>Observed test records: 5,971<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_f6287e55a8be148832fbfc87bf875446.setContent(html_0ab93a0d5e24cd8cd3a0ed00d0643289);
+            
+        
+
+        circle_marker_897d8e06d66758d4a974b01ea88e6925.bindPopup(popup_f6287e55a8be148832fbfc87bf875446)
+        ;
+
+        
+    
+    
+            circle_marker_897d8e06d66758d4a974b01ea88e6925.bindTooltip(
+                `<div>
+                     Basel — Station Benkenstrasse — 7.44%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d9239216c6e7f32fa83a58c4aa4a2d9 = L.circleMarker(
+                [47.562, 7.561],
+                {"bubblingMouseEvents": true, "color": "#fff8baff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff8baff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_236dc3a0362de4519c93415e66699a80 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d31805d5f62ea3558b76ae235f2f4b6c = $(`<div id="html_d31805d5f62ea3558b76ae235f2f4b6c" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Blotzheimerweg<br>Within-city rank: 63 of 77<br>Mean predicted probability: 7.43%<br>Observed test records: 7,987<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_236dc3a0362de4519c93415e66699a80.setContent(html_d31805d5f62ea3558b76ae235f2f4b6c);
+            
+        
+
+        circle_marker_0d9239216c6e7f32fa83a58c4aa4a2d9.bindPopup(popup_236dc3a0362de4519c93415e66699a80)
+        ;
+
+        
+    
+    
+            circle_marker_0d9239216c6e7f32fa83a58c4aa4a2d9.bindTooltip(
+                `<div>
+                     Basel — Station Blotzheimerweg — 7.43%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_deba4d3bcb74788b7c1d2abb2400cdb9 = L.circleMarker(
+                [47.513, 7.601],
+                {"bubblingMouseEvents": true, "color": "#fff8baff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff8baff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_23b30d0c2110b2b2d061aaf096e98694 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a44a6b850a693b01e10b86d4896291d1 = $(`<div id="html_a44a6b850a693b01e10b86d4896291d1" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Jupiterstrasse<br>Within-city rank: 64 of 77<br>Mean predicted probability: 7.43%<br>Observed test records: 7,078<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_23b30d0c2110b2b2d061aaf096e98694.setContent(html_a44a6b850a693b01e10b86d4896291d1);
+            
+        
+
+        circle_marker_deba4d3bcb74788b7c1d2abb2400cdb9.bindPopup(popup_23b30d0c2110b2b2d061aaf096e98694)
+        ;
+
+        
+    
+    
+            circle_marker_deba4d3bcb74788b7c1d2abb2400cdb9.bindTooltip(
+                `<div>
+                     Basel — Station Jupiterstrasse — 7.43%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b6aea9bfa57a49b30c0412e3521f44cd = L.circleMarker(
+                [47.544, 7.574],
+                {"bubblingMouseEvents": true, "color": "#fff8bbff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff8bbff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_5811bd4151766a2b5bb8bb081faa7b53 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_21cb51d9a6f6d91179f81b6ed56048ba = $(`<div id="html_21cb51d9a6f6d91179f81b6ed56048ba" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Dorenbachstrasse<br>Within-city rank: 65 of 77<br>Mean predicted probability: 7.42%<br>Observed test records: 8,216<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_5811bd4151766a2b5bb8bb081faa7b53.setContent(html_21cb51d9a6f6d91179f81b6ed56048ba);
+            
+        
+
+        circle_marker_b6aea9bfa57a49b30c0412e3521f44cd.bindPopup(popup_5811bd4151766a2b5bb8bb081faa7b53)
+        ;
+
+        
+    
+    
+            circle_marker_b6aea9bfa57a49b30c0412e3521f44cd.bindTooltip(
+                `<div>
+                     Basel — Station Dorenbachstrasse — 7.42%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6c83b49779b7af02417fc53779daf802 = L.circleMarker(
+                [47.486, 7.621],
+                {"bubblingMouseEvents": true, "color": "#fff8bbff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff8bbff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_4eb23d68199bae1ab97677c681a6f1bb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb770d47fc9158a31c4e0d5e984692eb = $(`<div id="html_bb770d47fc9158a31c4e0d5e984692eb" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Goetheanum<br>Within-city rank: 66 of 77<br>Mean predicted probability: 7.42%<br>Observed test records: 7,258<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_4eb23d68199bae1ab97677c681a6f1bb.setContent(html_bb770d47fc9158a31c4e0d5e984692eb);
+            
+        
+
+        circle_marker_6c83b49779b7af02417fc53779daf802.bindPopup(popup_4eb23d68199bae1ab97677c681a6f1bb)
+        ;
+
+        
+    
+    
+            circle_marker_6c83b49779b7af02417fc53779daf802.bindTooltip(
+                `<div>
+                     Basel — Station Goetheanum — 7.42%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c41cf19bcc3757b75d5420a44708750 = L.circleMarker(
+                [47.548, 7.567],
+                {"bubblingMouseEvents": true, "color": "#fff9bcff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff9bcff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_2db9c9522f4f826c60ceb78c7634ac33 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_355e56861db764781ae4c0fee5a973e0 = $(`<div id="html_355e56861db764781ae4c0fee5a973e0" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Laupenring<br>Within-city rank: 67 of 77<br>Mean predicted probability: 7.41%<br>Observed test records: 6,920<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_2db9c9522f4f826c60ceb78c7634ac33.setContent(html_355e56861db764781ae4c0fee5a973e0);
+            
+        
+
+        circle_marker_8c41cf19bcc3757b75d5420a44708750.bindPopup(popup_2db9c9522f4f826c60ceb78c7634ac33)
+        ;
+
+        
+    
+    
+            circle_marker_8c41cf19bcc3757b75d5420a44708750.bindTooltip(
+                `<div>
+                     Basel — Station Laupenring — 7.41%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8b3c65e619d90d588d7c39bc1713bb6c = L.circleMarker(
+                [47.482, 7.62],
+                {"bubblingMouseEvents": true, "color": "#fff9bdff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff9bdff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_631b5cb1c553b4e0bc454fb610b6b764 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0181bdd68323bc4c36349189f7d0d1c5 = $(`<div id="html_0181bdd68323bc4c36349189f7d0d1c5" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Dorneckstrasse<br>Within-city rank: 68 of 77<br>Mean predicted probability: 7.41%<br>Observed test records: 7,400<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_631b5cb1c553b4e0bc454fb610b6b764.setContent(html_0181bdd68323bc4c36349189f7d0d1c5);
+            
+        
+
+        circle_marker_8b3c65e619d90d588d7c39bc1713bb6c.bindPopup(popup_631b5cb1c553b4e0bc454fb610b6b764)
+        ;
+
+        
+    
+    
+            circle_marker_8b3c65e619d90d588d7c39bc1713bb6c.bindTooltip(
+                `<div>
+                     Basel — Station Dorneckstrasse — 7.41%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_095a0232301c1c65f21dd3179d817e2d = L.circleMarker(
+                [47.544, 7.568],
+                {"bubblingMouseEvents": true, "color": "#fff9bdff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff9bdff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_a434b99d95965adf9f9396b1bb131e5c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ad541eaacdfbe99fa6b51d7dbde064ed = $(`<div id="html_ad541eaacdfbe99fa6b51d7dbde064ed" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Hasenrainstrasse<br>Within-city rank: 69 of 77<br>Mean predicted probability: 7.40%<br>Observed test records: 7,922<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_a434b99d95965adf9f9396b1bb131e5c.setContent(html_ad541eaacdfbe99fa6b51d7dbde064ed);
+            
+        
+
+        circle_marker_095a0232301c1c65f21dd3179d817e2d.bindPopup(popup_a434b99d95965adf9f9396b1bb131e5c)
+        ;
+
+        
+    
+    
+            circle_marker_095a0232301c1c65f21dd3179d817e2d.bindTooltip(
+                `<div>
+                     Basel — Station Hasenrainstrasse — 7.40%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7891173d1adedc9286ae85f5e7e6c1ac = L.circleMarker(
+                [47.553, 7.56],
+                {"bubblingMouseEvents": true, "color": "#fff9bdff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff9bdff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_3e2183024c05b732248bac9a4355e13b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_97fb64ee8455b87aa11d3669771b0719 = $(`<div id="html_97fb64ee8455b87aa11d3669771b0719" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Schützenweg<br>Within-city rank: 70 of 77<br>Mean predicted probability: 7.40%<br>Observed test records: 8,565<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_3e2183024c05b732248bac9a4355e13b.setContent(html_97fb64ee8455b87aa11d3669771b0719);
+            
+        
+
+        circle_marker_7891173d1adedc9286ae85f5e7e6c1ac.bindPopup(popup_3e2183024c05b732248bac9a4355e13b)
+        ;
+
+        
+    
+    
+            circle_marker_7891173d1adedc9286ae85f5e7e6c1ac.bindTooltip(
+                `<div>
+                     Basel — Station Schützenweg — 7.40%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_73d36d9d16e023283d436ffcfc855d91 = L.circleMarker(
+                [47.558, 7.554],
+                {"bubblingMouseEvents": true, "color": "#fffabeff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fffabeff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_790066d9e08db6109c2fcd2d4f85c671 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10570af7bbe59d15075de87655e29425 = $(`<div id="html_10570af7bbe59d15075de87655e29425" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Baselmattweg<br>Within-city rank: 71 of 77<br>Mean predicted probability: 7.40%<br>Observed test records: 7,610<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_790066d9e08db6109c2fcd2d4f85c671.setContent(html_10570af7bbe59d15075de87655e29425);
+            
+        
+
+        circle_marker_73d36d9d16e023283d436ffcfc855d91.bindPopup(popup_790066d9e08db6109c2fcd2d4f85c671)
+        ;
+
+        
+    
+    
+            circle_marker_73d36d9d16e023283d436ffcfc855d91.bindTooltip(
+                `<div>
+                     Basel — Station Baselmattweg — 7.40%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_def0ad6b9fa54220837f699ea0dc45d2 = L.circleMarker(
+                [47.477, 7.62],
+                {"bubblingMouseEvents": true, "color": "#fffabeff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fffabeff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_7a17772b9c3c6b318fcff3eb2e6af3ac = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e633b8fa6cea7e9081341cf7efbcd900 = $(`<div id="html_e633b8fa6cea7e9081341cf7efbcd900" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Rosenweg<br>Within-city rank: 72 of 77<br>Mean predicted probability: 7.39%<br>Observed test records: 7,355<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_7a17772b9c3c6b318fcff3eb2e6af3ac.setContent(html_e633b8fa6cea7e9081341cf7efbcd900);
+            
+        
+
+        circle_marker_def0ad6b9fa54220837f699ea0dc45d2.bindPopup(popup_7a17772b9c3c6b318fcff3eb2e6af3ac)
+        ;
+
+        
+    
+    
+            circle_marker_def0ad6b9fa54220837f699ea0dc45d2.bindTooltip(
+                `<div>
+                     Basel — Station Rosenweg — 7.39%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20843479ebb77da4127a2af86bda7231 = L.circleMarker(
+                [47.54, 7.567],
+                {"bubblingMouseEvents": true, "color": "#fffabfff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fffabfff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_7c262d92e705648f6222b6b13de63a28 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9889bfc3779c183f2542769bba302b1d = $(`<div id="html_9889bfc3779c183f2542769bba302b1d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: .Binningen.<br>Within-city rank: 73 of 77<br>Mean predicted probability: 7.39%<br>Observed test records: 7,691<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_7c262d92e705648f6222b6b13de63a28.setContent(html_9889bfc3779c183f2542769bba302b1d);
+            
+        
+
+        circle_marker_20843479ebb77da4127a2af86bda7231.bindPopup(popup_7c262d92e705648f6222b6b13de63a28)
+        ;
+
+        
+    
+    
+            circle_marker_20843479ebb77da4127a2af86bda7231.bindTooltip(
+                `<div>
+                     Basel — Station .Binningen. — 7.39%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a70abf7171582d3ebb63c21b3364b27 = L.circleMarker(
+                [47.553, 7.548],
+                {"bubblingMouseEvents": true, "color": "#fffbc2ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fffbc2ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_11bdf1947921b727bfdcb6060b8fa055 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef7e9ff1b7383ec1c2beb7165f173bb1 = $(`<div id="html_ef7e9ff1b7383ec1c2beb7165f173bb1" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Dürenmattweg<br>Within-city rank: 74 of 77<br>Mean predicted probability: 7.36%<br>Observed test records: 6,252<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_11bdf1947921b727bfdcb6060b8fa055.setContent(html_ef7e9ff1b7383ec1c2beb7165f173bb1);
+            
+        
+
+        circle_marker_4a70abf7171582d3ebb63c21b3364b27.bindPopup(popup_11bdf1947921b727bfdcb6060b8fa055)
+        ;
+
+        
+    
+    
+            circle_marker_4a70abf7171582d3ebb63c21b3364b27.bindTooltip(
+                `<div>
+                     Basel — Station Dürenmattweg — 7.36%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3b01cd133f3c17287ef0e7cc9e687b39 = L.circleMarker(
+                [47.479, 7.607],
+                {"bubblingMouseEvents": true, "color": "#fffcc3ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fffcc3ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_2f27ff0ad628bfb230613166bf87aa1d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10273b4ff87a0b023d1610a698f5d866 = $(`<div id="html_10273b4ff87a0b023d1610a698f5d866" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Weidenstrasse<br>Within-city rank: 75 of 77<br>Mean predicted probability: 7.36%<br>Observed test records: 5,414<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_2f27ff0ad628bfb230613166bf87aa1d.setContent(html_10273b4ff87a0b023d1610a698f5d866);
+            
+        
+
+        circle_marker_3b01cd133f3c17287ef0e7cc9e687b39.bindPopup(popup_2f27ff0ad628bfb230613166bf87aa1d)
+        ;
+
+        
+    
+    
+            circle_marker_3b01cd133f3c17287ef0e7cc9e687b39.bindTooltip(
+                `<div>
+                     Basel — Station Weidenstrasse — 7.36%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d89ed7e910429d5c118f118c2f38ff4d = L.circleMarker(
+                [47.549, 7.547],
+                {"bubblingMouseEvents": true, "color": "#fffcc4ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fffcc4ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_7021c8eef1fa7107a4ae1d17f98cf76c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b7b6b100553487eb6013258d8d8941d = $(`<div id="html_2b7b6b100553487eb6013258d8d8941d" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Fabrikstrasse<br>Within-city rank: 76 of 77<br>Mean predicted probability: 7.35%<br>Observed test records: 6,700<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_7021c8eef1fa7107a4ae1d17f98cf76c.setContent(html_2b7b6b100553487eb6013258d8d8941d);
+            
+        
+
+        circle_marker_d89ed7e910429d5c118f118c2f38ff4d.bindPopup(popup_7021c8eef1fa7107a4ae1d17f98cf76c)
+        ;
+
+        
+    
+    
+            circle_marker_d89ed7e910429d5c118f118c2f38ff4d.bindTooltip(
+                `<div>
+                     Basel — Station Fabrikstrasse — 7.35%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e35f6b69d3e36f5e0feb1f5586413278 = L.circleMarker(
+                [47.468, 7.59],
+                {"bubblingMouseEvents": true, "color": "#ffffccff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffccff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9249fa6f7c06920335d7b23f3aa125fc);
+        
+    
+        var popup_26e416a77921c97b7feb5bd3a2567d3f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aa4da67c3338ac436394134ea0c69b90 = $(`<div id="html_aa4da67c3338ac436394134ea0c69b90" style="width: 100.0%; height: 100.0%;"><b>Basel</b><br>Station: Klusstrasse<br>Within-city rank: 77 of 77<br>Mean predicted probability: 7.27%<br>Observed test records: 5,379<br>Observed months: 11 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_26e416a77921c97b7feb5bd3a2567d3f.setContent(html_aa4da67c3338ac436394134ea0c69b90);
+            
+        
+
+        circle_marker_e35f6b69d3e36f5e0feb1f5586413278.bindPopup(popup_26e416a77921c97b7feb5bd3a2567d3f)
+        ;
+
+        
+    
+    
+            circle_marker_e35f6b69d3e36f5e0feb1f5586413278.bindTooltip(
+                `<div>
+                     Basel — Station Klusstrasse — 7.27%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_9249fa6f7c06920335d7b23f3aa125fc.addTo(map_05fcd8e1a1649a73cf8a53a278c8efc3);
+        
+    
+            var feature_group_8674b7696a14e6736b32a01187cf824e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e5d961c2e0e23a5daaac6a223c0ed69b = L.circleMarker(
+                [52.505, 13.378],
+                {"bubblingMouseEvents": true, "color": "#800026ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800026ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8674b7696a14e6736b32a01187cf824e);
+        
+    
+        var popup_b7e9bc581c91bee6ddca3af68338a86b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f053fcf3c123a1cd3625390f7bb078c = $(`<div id="html_6f053fcf3c123a1cd3625390f7bb078c" style="width: 100.0%; height: 100.0%;"><b>Berlin</b><br>Station: DEU_BER_004<br>Within-city rank: 1 of 8<br>Mean predicted probability: 10.35%<br>Observed test records: 7,951<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_b7e9bc581c91bee6ddca3af68338a86b.setContent(html_6f053fcf3c123a1cd3625390f7bb078c);
+            
+        
+
+        circle_marker_e5d961c2e0e23a5daaac6a223c0ed69b.bindPopup(popup_b7e9bc581c91bee6ddca3af68338a86b)
+        ;
+
+        
+    
+    
+            circle_marker_e5d961c2e0e23a5daaac6a223c0ed69b.bindTooltip(
+                `<div>
+                     Berlin — Station DEU_BER_004 — 10.35%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0c409c2d03b74c7b12f1c2796b11cc40 = L.circleMarker(
+                [52.496, 13.338],
+                {"bubblingMouseEvents": true, "color": "#dd151dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dd151dff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8674b7696a14e6736b32a01187cf824e);
+        
+    
+        var popup_ce81878d83f21c850727511b28284617 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_476d16d94367fe1e5d1e7bc1292d8eae = $(`<div id="html_476d16d94367fe1e5d1e7bc1292d8eae" style="width: 100.0%; height: 100.0%;"><b>Berlin</b><br>Station: DEU_BER_001<br>Within-city rank: 2 of 8<br>Mean predicted probability: 9.64%<br>Observed test records: 8,324<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_ce81878d83f21c850727511b28284617.setContent(html_476d16d94367fe1e5d1e7bc1292d8eae);
+            
+        
+
+        circle_marker_0c409c2d03b74c7b12f1c2796b11cc40.bindPopup(popup_ce81878d83f21c850727511b28284617)
+        ;
+
+        
+    
+    
+            circle_marker_0c409c2d03b74c7b12f1c2796b11cc40.bindTooltip(
+                `<div>
+                     Berlin — Station DEU_BER_001 — 9.64%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_354a45b8632214685ad65863351999e6 = L.circleMarker(
+                [52.514, 13.364],
+                {"bubblingMouseEvents": true, "color": "#e51e1dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e51e1dff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8674b7696a14e6736b32a01187cf824e);
+        
+    
+        var popup_8b9fc315fd38f77b21182b69b7728574 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_27ecd68ce54b4f3e11ba45bcc554cde8 = $(`<div id="html_27ecd68ce54b4f3e11ba45bcc554cde8" style="width: 100.0%; height: 100.0%;"><b>Berlin</b><br>Station: DEU_BER_020<br>Within-city rank: 3 of 8<br>Mean predicted probability: 9.55%<br>Observed test records: 8,531<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_8b9fc315fd38f77b21182b69b7728574.setContent(html_27ecd68ce54b4f3e11ba45bcc554cde8);
+            
+        
+
+        circle_marker_354a45b8632214685ad65863351999e6.bindPopup(popup_8b9fc315fd38f77b21182b69b7728574)
+        ;
+
+        
+    
+    
+            circle_marker_354a45b8632214685ad65863351999e6.bindTooltip(
+                `<div>
+                     Berlin — Station DEU_BER_020 — 9.55%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6a78bf3c616f15c44d172a2477303644 = L.circleMarker(
+                [52.521, 13.294],
+                {"bubblingMouseEvents": true, "color": "#f53f26ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f53f26ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8674b7696a14e6736b32a01187cf824e);
+        
+    
+        var popup_be3126b14a4ee6322f311898d9005237 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_57ba42b32c738d967c5755ed99d78c99 = $(`<div id="html_57ba42b32c738d967c5755ed99d78c99" style="width: 100.0%; height: 100.0%;"><b>Berlin</b><br>Station: DEU_BER_017<br>Within-city rank: 4 of 8<br>Mean predicted probability: 9.30%<br>Observed test records: 8,736<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_be3126b14a4ee6322f311898d9005237.setContent(html_57ba42b32c738d967c5755ed99d78c99);
+            
+        
+
+        circle_marker_6a78bf3c616f15c44d172a2477303644.bindPopup(popup_be3126b14a4ee6322f311898d9005237)
+        ;
+
+        
+    
+    
+            circle_marker_6a78bf3c616f15c44d172a2477303644.bindTooltip(
+                `<div>
+                     Berlin — Station DEU_BER_017 — 9.30%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58b98e93537832f30727fb15aa7a28d1 = L.circleMarker(
+                [52.457, 13.316],
+                {"bubblingMouseEvents": true, "color": "#fd4f2aff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd4f2aff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8674b7696a14e6736b32a01187cf824e);
+        
+    
+        var popup_2aaa01a493a165c37d83c8d6d5182c21 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be10f7815cca30db0136f34165fb3456 = $(`<div id="html_be10f7815cca30db0136f34165fb3456" style="width: 100.0%; height: 100.0%;"><b>Berlin</b><br>Station: DEU_BER_012<br>Within-city rank: 5 of 8<br>Mean predicted probability: 9.19%<br>Observed test records: 7,837<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_2aaa01a493a165c37d83c8d6d5182c21.setContent(html_be10f7815cca30db0136f34165fb3456);
+            
+        
+
+        circle_marker_58b98e93537832f30727fb15aa7a28d1.bindPopup(popup_2aaa01a493a165c37d83c8d6d5182c21)
+        ;
+
+        
+    
+    
+            circle_marker_58b98e93537832f30727fb15aa7a28d1.bindTooltip(
+                `<div>
+                     Berlin — Station DEU_BER_012 — 9.19%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9a6a228b85528c2b03606ea8ed8b5b7a = L.circleMarker(
+                [52.473, 13.225],
+                {"bubblingMouseEvents": true, "color": "#fd7e38ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd7e38ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8674b7696a14e6736b32a01187cf824e);
+        
+    
+        var popup_c703eb5b9b8d2be6a23940f2272198f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_718d832bbb5f18ecfc792571329a68a7 = $(`<div id="html_718d832bbb5f18ecfc792571329a68a7" style="width: 100.0%; height: 100.0%;"><b>Berlin</b><br>Station: DEU_BER_005<br>Within-city rank: 6 of 8<br>Mean predicted probability: 8.90%<br>Observed test records: 6,726<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_c703eb5b9b8d2be6a23940f2272198f7.setContent(html_718d832bbb5f18ecfc792571329a68a7);
+            
+        
+
+        circle_marker_9a6a228b85528c2b03606ea8ed8b5b7a.bindPopup(popup_c703eb5b9b8d2be6a23940f2272198f7)
+        ;
+
+        
+    
+    
+            circle_marker_9a6a228b85528c2b03606ea8ed8b5b7a.bindTooltip(
+                `<div>
+                     Berlin — Station DEU_BER_005 — 8.90%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55a46313d68e3061ea222e97a258eed4 = L.circleMarker(
+                [52.536, 13.158],
+                {"bubblingMouseEvents": true, "color": "#fd873aff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd873aff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8674b7696a14e6736b32a01187cf824e);
+        
+    
+        var popup_22e116f3614b156d9772d094100de2b5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0850eb8763347bdae5a374524d1e78c8 = $(`<div id="html_0850eb8763347bdae5a374524d1e78c8" style="width: 100.0%; height: 100.0%;"><b>Berlin</b><br>Station: DEU_BER_002<br>Within-city rank: 7 of 8<br>Mean predicted probability: 8.84%<br>Observed test records: 8,735<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_22e116f3614b156d9772d094100de2b5.setContent(html_0850eb8763347bdae5a374524d1e78c8);
+            
+        
+
+        circle_marker_55a46313d68e3061ea222e97a258eed4.bindPopup(popup_22e116f3614b156d9772d094100de2b5)
+        ;
+
+        
+    
+    
+            circle_marker_55a46313d68e3061ea222e97a258eed4.bindTooltip(
+                `<div>
+                     Berlin — Station DEU_BER_002 — 8.84%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_46e220084eef9d045e71f3d5a4506363 = L.circleMarker(
+                [52.411, 13.064],
+                {"bubblingMouseEvents": true, "color": "#fecf6bff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fecf6bff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8674b7696a14e6736b32a01187cf824e);
+        
+    
+        var popup_ffeee5f59edde38b401ccf59e9597d5c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_516f6e6eefefc614f6ea67db22743fa8 = $(`<div id="html_516f6e6eefefc614f6ea67db22743fa8" style="width: 100.0%; height: 100.0%;"><b>Berlin</b><br>Station: DEU_BER_007<br>Within-city rank: 8 of 8<br>Mean predicted probability: 8.14%<br>Observed test records: 8,735<br>Observed months: 12 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_ffeee5f59edde38b401ccf59e9597d5c.setContent(html_516f6e6eefefc614f6ea67db22743fa8);
+            
+        
+
+        circle_marker_46e220084eef9d045e71f3d5a4506363.bindPopup(popup_ffeee5f59edde38b401ccf59e9597d5c)
+        ;
+
+        
+    
+    
+            circle_marker_46e220084eef9d045e71f3d5a4506363.bindTooltip(
+                `<div>
+                     Berlin — Station DEU_BER_007 — 8.14%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_8674b7696a14e6736b32a01187cf824e.addTo(map_05fcd8e1a1649a73cf8a53a278c8efc3);
+        
+    
+            var feature_group_9adacbe8f166b5db0264f223bb13fc4c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_889f42995ef8f4a64887b3884453aaa0 = L.circleMarker(
+                [52.556, -1.793],
+                {"bubblingMouseEvents": true, "color": "#ca0922ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ca0922ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_79467de0a4d787a37dfe4d53c2e2f9ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ab29fb4c8c3b7ba81fd50e46567e7f5b = $(`<div id="html_ab29fb4c8c3b7ba81fd50e46567e7f5b" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_010<br>Within-city rank: 1 of 18<br>Mean predicted probability: 9.83%<br>Observed test records: 5,688<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_79467de0a4d787a37dfe4d53c2e2f9ea.setContent(html_ab29fb4c8c3b7ba81fd50e46567e7f5b);
+            
+        
+
+        circle_marker_889f42995ef8f4a64887b3884453aaa0.bindPopup(popup_79467de0a4d787a37dfe4d53c2e2f9ea)
+        ;
+
+        
+    
+    
+            circle_marker_889f42995ef8f4a64887b3884453aaa0.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_010 — 9.83%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3212474a9e051f24a9ee432ac7af9bed = L.circleMarker(
+                [52.483, -1.786],
+                {"bubblingMouseEvents": true, "color": "#df161dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#df161dff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_c7e6f6f92c8ddfa655a2de80cbfc5382 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff2a81b20941cfb0abdbfcd7c4c66dd1 = $(`<div id="html_ff2a81b20941cfb0abdbfcd7c4c66dd1" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_012<br>Within-city rank: 2 of 18<br>Mean predicted probability: 9.63%<br>Observed test records: 5,660<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_c7e6f6f92c8ddfa655a2de80cbfc5382.setContent(html_ff2a81b20941cfb0abdbfcd7c4c66dd1);
+            
+        
+
+        circle_marker_3212474a9e051f24a9ee432ac7af9bed.bindPopup(popup_c7e6f6f92c8ddfa655a2de80cbfc5382)
+        ;
+
+        
+    
+    
+            circle_marker_3212474a9e051f24a9ee432ac7af9bed.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_012 — 9.63%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_94fc16adef9f6b8ed1f5b988cc4c8af3 = L.circleMarker(
+                [52.526, -1.85],
+                {"bubblingMouseEvents": true, "color": "#e8221eff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e8221eff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_2586680bf3ce6263ddf39ca6ceeed91a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_88131d22936cb0a27de4c43adf18fab1 = $(`<div id="html_88131d22936cb0a27de4c43adf18fab1" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_008<br>Within-city rank: 3 of 18<br>Mean predicted probability: 9.51%<br>Observed test records: 2,341<br>Observed months: 4 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_2586680bf3ce6263ddf39ca6ceeed91a.setContent(html_88131d22936cb0a27de4c43adf18fab1);
+            
+        
+
+        circle_marker_94fc16adef9f6b8ed1f5b988cc4c8af3.bindPopup(popup_2586680bf3ce6263ddf39ca6ceeed91a)
+        ;
+
+        
+    
+    
+            circle_marker_94fc16adef9f6b8ed1f5b988cc4c8af3.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_008 — 9.51%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d73a9d221de934a4c89f28cdbdd12294 = L.circleMarker(
+                [52.557, -1.888],
+                {"bubblingMouseEvents": true, "color": "#eb2920ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#eb2920ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_7c883aa4fa5b1073240da12343d9816a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6e8547aa0ffe9e2b5f69aed2b5346ec = $(`<div id="html_f6e8547aa0ffe9e2b5f69aed2b5346ec" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_011<br>Within-city rank: 4 of 18<br>Mean predicted probability: 9.47%<br>Observed test records: 5,643<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_7c883aa4fa5b1073240da12343d9816a.setContent(html_f6e8547aa0ffe9e2b5f69aed2b5346ec);
+            
+        
+
+        circle_marker_d73a9d221de934a4c89f28cdbdd12294.bindPopup(popup_7c883aa4fa5b1073240da12343d9816a)
+        ;
+
+        
+    
+    
+            circle_marker_d73a9d221de934a4c89f28cdbdd12294.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_011 — 9.47%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f8a6894f86ecac39493e9d50e0c4b0b6 = L.circleMarker(
+                [52.445, -1.821],
+                {"bubblingMouseEvents": true, "color": "#f13623ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f13623ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_cd629a13ad80245cbe978655f0510ce3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1be0b606d3903a950049cceea135ef7 = $(`<div id="html_e1be0b606d3903a950049cceea135ef7" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_002<br>Within-city rank: 5 of 18<br>Mean predicted probability: 9.37%<br>Observed test records: 5,688<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_cd629a13ad80245cbe978655f0510ce3.setContent(html_e1be0b606d3903a950049cceea135ef7);
+            
+        
+
+        circle_marker_f8a6894f86ecac39493e9d50e0c4b0b6.bindPopup(popup_cd629a13ad80245cbe978655f0510ce3)
+        ;
+
+        
+    
+    
+            circle_marker_f8a6894f86ecac39493e9d50e0c4b0b6.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_002 — 9.37%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c5b352a456dcef4aa4d84bb2457a2c06 = L.circleMarker(
+                [52.471, -1.855],
+                {"bubblingMouseEvents": true, "color": "#f43c25ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f43c25ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_af5cbe3327a3c83bfc6d176785bcc0cc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ffe2d9267bb24a89f03228f46f397f72 = $(`<div id="html_ffe2d9267bb24a89f03228f46f397f72" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_018<br>Within-city rank: 6 of 18<br>Mean predicted probability: 9.32%<br>Observed test records: 5,688<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_af5cbe3327a3c83bfc6d176785bcc0cc.setContent(html_ffe2d9267bb24a89f03228f46f397f72);
+            
+        
+
+        circle_marker_c5b352a456dcef4aa4d84bb2457a2c06.bindPopup(popup_af5cbe3327a3c83bfc6d176785bcc0cc)
+        ;
+
+        
+    
+    
+            circle_marker_c5b352a456dcef4aa4d84bb2457a2c06.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_018 — 9.32%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d34aa6d7d0c26a02c02577ca86e43122 = L.circleMarker(
+                [52.417, -1.843],
+                {"bubblingMouseEvents": true, "color": "#fc4d29ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc4d29ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_40bae82e7f7de5a8807b0643ff4a8617 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7dad97fa178607d2850483a4ac0b8361 = $(`<div id="html_7dad97fa178607d2850483a4ac0b8361" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_004<br>Within-city rank: 7 of 18<br>Mean predicted probability: 9.20%<br>Observed test records: 3,389<br>Observed months: 5 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_40bae82e7f7de5a8807b0643ff4a8617.setContent(html_7dad97fa178607d2850483a4ac0b8361);
+            
+        
+
+        circle_marker_d34aa6d7d0c26a02c02577ca86e43122.bindPopup(popup_40bae82e7f7de5a8807b0643ff4a8617)
+        ;
+
+        
+    
+    
+            circle_marker_d34aa6d7d0c26a02c02577ca86e43122.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_004 — 9.20%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a143e8c00f295d00355fd1dd8060adcd = L.circleMarker(
+                [52.472, -1.901],
+                {"bubblingMouseEvents": true, "color": "#fd542cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd542cff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_7bcf8c2c677cc6609c809951b8b7d1b5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7f6689f6dd32a851c607352913e243cc = $(`<div id="html_7f6689f6dd32a851c607352913e243cc" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_019<br>Within-city rank: 8 of 18<br>Mean predicted probability: 9.15%<br>Observed test records: 5,688<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_7bcf8c2c677cc6609c809951b8b7d1b5.setContent(html_7f6689f6dd32a851c607352913e243cc);
+            
+        
+
+        circle_marker_a143e8c00f295d00355fd1dd8060adcd.bindPopup(popup_7bcf8c2c677cc6609c809951b8b7d1b5)
+        ;
+
+        
+    
+    
+            circle_marker_a143e8c00f295d00355fd1dd8060adcd.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_019 — 9.15%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bc5b69af166531918bf562974a67a4bc = L.circleMarker(
+                [52.511, -1.936],
+                {"bubblingMouseEvents": true, "color": "#fd562cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd562cff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_3023172a019a32f9c7895d6ff742f881 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f275964e25e9e5026395108eec7bf0c = $(`<div id="html_9f275964e25e9e5026395108eec7bf0c" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_017<br>Within-city rank: 9 of 18<br>Mean predicted probability: 9.14%<br>Observed test records: 2,812<br>Observed months: 4 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_3023172a019a32f9c7895d6ff742f881.setContent(html_9f275964e25e9e5026395108eec7bf0c);
+            
+        
+
+        circle_marker_bc5b69af166531918bf562974a67a4bc.bindPopup(popup_3023172a019a32f9c7895d6ff742f881)
+        ;
+
+        
+    
+    
+            circle_marker_bc5b69af166531918bf562974a67a4bc.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_017 — 9.14%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7e2266f11bce3d87669c900aa4ef109a = L.circleMarker(
+                [52.533, -1.96],
+                {"bubblingMouseEvents": true, "color": "#fd5a2dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd5a2dff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_c90e165f55a184e4db0f10e14f3a0571 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d75e080f2743d6cfd9a1552936de598a = $(`<div id="html_d75e080f2743d6cfd9a1552936de598a" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_009<br>Within-city rank: 10 of 18<br>Mean predicted probability: 9.12%<br>Observed test records: 5,681<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_c90e165f55a184e4db0f10e14f3a0571.setContent(html_d75e080f2743d6cfd9a1552936de598a);
+            
+        
+
+        circle_marker_7e2266f11bce3d87669c900aa4ef109a.bindPopup(popup_c90e165f55a184e4db0f10e14f3a0571)
+        ;
+
+        
+    
+    
+            circle_marker_7e2266f11bce3d87669c900aa4ef109a.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_009 — 9.12%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_096220024a9c6a04d98e964c9286b891 = L.circleMarker(
+                [52.477, -1.929],
+                {"bubblingMouseEvents": true, "color": "#fd6330ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd6330ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_c5c438b0a5f4c35c5548648d01682197 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2bb7d78c9ad8d95b95013c6c3dc000b = $(`<div id="html_e2bb7d78c9ad8d95b95013c6c3dc000b" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_021<br>Within-city rank: 11 of 18<br>Mean predicted probability: 9.07%<br>Observed test records: 3,984<br>Observed months: 6 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_c5c438b0a5f4c35c5548648d01682197.setContent(html_e2bb7d78c9ad8d95b95013c6c3dc000b);
+            
+        
+
+        circle_marker_096220024a9c6a04d98e964c9286b891.bindPopup(popup_c5c438b0a5f4c35c5548648d01682197)
+        ;
+
+        
+    
+    
+            circle_marker_096220024a9c6a04d98e964c9286b891.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_021 — 9.07%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45d1c31ec68c75f61e7f01df3c399ad8 = L.circleMarker(
+                [52.422, -1.935],
+                {"bubblingMouseEvents": true, "color": "#fd8239ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd8239ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_e15a467440916171efd4a3664d9f7bc2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4e9d085ee66da35107221487ebd56424 = $(`<div id="html_4e9d085ee66da35107221487ebd56424" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_020<br>Within-city rank: 12 of 18<br>Mean predicted probability: 8.88%<br>Observed test records: 5,620<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_e15a467440916171efd4a3664d9f7bc2.setContent(html_4e9d085ee66da35107221487ebd56424);
+            
+        
+
+        circle_marker_45d1c31ec68c75f61e7f01df3c399ad8.bindPopup(popup_e15a467440916171efd4a3664d9f7bc2)
+        ;
+
+        
+    
+    
+            circle_marker_45d1c31ec68c75f61e7f01df3c399ad8.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_020 — 8.88%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_50975386e2db3ade3985727d6f983425 = L.circleMarker(
+                [52.47, -1.982],
+                {"bubblingMouseEvents": true, "color": "#fd873aff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd873aff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_4017a74cd270a385025f49f42737a6e3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_963d3f4e678250e4e9f3b61ff44bb616 = $(`<div id="html_963d3f4e678250e4e9f3b61ff44bb616" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_023<br>Within-city rank: 13 of 18<br>Mean predicted probability: 8.85%<br>Observed test records: 2,840<br>Observed months: 4 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_4017a74cd270a385025f49f42737a6e3.setContent(html_963d3f4e678250e4e9f3b61ff44bb616);
+            
+        
+
+        circle_marker_50975386e2db3ade3985727d6f983425.bindPopup(popup_4017a74cd270a385025f49f42737a6e3)
+        ;
+
+        
+    
+    
+            circle_marker_50975386e2db3ade3985727d6f983425.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_023 — 8.85%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd2eb1bb948b76a41828791bac432117 = L.circleMarker(
+                [52.429, -1.962],
+                {"bubblingMouseEvents": true, "color": "#fe8e3cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fe8e3cff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_7fa41d8f38d86406af0b20a6f040c464 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b646ebf8398541f1f2e11d67679b3a71 = $(`<div id="html_b646ebf8398541f1f2e11d67679b3a71" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_015<br>Within-city rank: 14 of 18<br>Mean predicted probability: 8.80%<br>Observed test records: 2,843<br>Observed months: 4 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_7fa41d8f38d86406af0b20a6f040c464.setContent(html_b646ebf8398541f1f2e11d67679b3a71);
+            
+        
+
+        circle_marker_bd2eb1bb948b76a41828791bac432117.bindPopup(popup_7fa41d8f38d86406af0b20a6f040c464)
+        ;
+
+        
+    
+    
+            circle_marker_bd2eb1bb948b76a41828791bac432117.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_015 — 8.80%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fc85aed16f46f79821b6bb78a32d1a24 = L.circleMarker(
+                [52.373, -1.92],
+                {"bubblingMouseEvents": true, "color": "#fe903dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fe903dff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_62042413c8d11ecbb5605f65281d4115 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d1e97b549f7a583a6ba11ccd126d5e35 = $(`<div id="html_d1e97b549f7a583a6ba11ccd126d5e35" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_014<br>Within-city rank: 15 of 18<br>Mean predicted probability: 8.78%<br>Observed test records: 5,686<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_62042413c8d11ecbb5605f65281d4115.setContent(html_d1e97b549f7a583a6ba11ccd126d5e35);
+            
+        
+
+        circle_marker_fc85aed16f46f79821b6bb78a32d1a24.bindPopup(popup_62042413c8d11ecbb5605f65281d4115)
+        ;
+
+        
+    
+    
+            circle_marker_fc85aed16f46f79821b6bb78a32d1a24.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_014 — 8.78%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c85e156837cfc32aac76ad96e30d392 = L.circleMarker(
+                [52.408, -1.95],
+                {"bubblingMouseEvents": true, "color": "#fe903dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fe903dff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_63b2050a510c31d47f56a967335b4fea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e1045a3bdc5946b9bb865ddab5b93bc = $(`<div id="html_9e1045a3bdc5946b9bb865ddab5b93bc" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_024<br>Within-city rank: 16 of 18<br>Mean predicted probability: 8.78%<br>Observed test records: 5,611<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_63b2050a510c31d47f56a967335b4fea.setContent(html_9e1045a3bdc5946b9bb865ddab5b93bc);
+            
+        
+
+        circle_marker_8c85e156837cfc32aac76ad96e30d392.bindPopup(popup_63b2050a510c31d47f56a967335b4fea)
+        ;
+
+        
+    
+    
+            circle_marker_8c85e156837cfc32aac76ad96e30d392.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_024 — 8.78%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d765f5b7e46c6042d8624b5415b51d4d = L.circleMarker(
+                [52.392, -1.999],
+                {"bubblingMouseEvents": true, "color": "#fea646ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fea646ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_2eeb9790b5cd5f0246db164b181d0615 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4754f0c8980111169458febc2bf33fe2 = $(`<div id="html_4754f0c8980111169458febc2bf33fe2" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_016<br>Within-city rank: 17 of 18<br>Mean predicted probability: 8.55%<br>Observed test records: 5,681<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_2eeb9790b5cd5f0246db164b181d0615.setContent(html_4754f0c8980111169458febc2bf33fe2);
+            
+        
+
+        circle_marker_d765f5b7e46c6042d8624b5415b51d4d.bindPopup(popup_2eeb9790b5cd5f0246db164b181d0615)
+        ;
+
+        
+    
+    
+            circle_marker_d765f5b7e46c6042d8624b5415b51d4d.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_016 — 8.55%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_848e0aa38ca81d6e849b969cd4284f65 = L.circleMarker(
+                [52.396, -2.062],
+                {"bubblingMouseEvents": true, "color": "#febb55ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#febb55ff", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9adacbe8f166b5db0264f223bb13fc4c);
+        
+    
+        var popup_c442b2fb8e33130ecd130704ec4b7b69 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_34e43c41cd2f80174849b602a31e49a1 = $(`<div id="html_34e43c41cd2f80174849b602a31e49a1" style="width: 100.0%; height: 100.0%;"><b>Birmingham</b><br>Station: ENG_BHM_003<br>Within-city rank: 18 of 18<br>Mean predicted probability: 8.34%<br>Observed test records: 5,686<br>Observed months: 8 of 12<br>Observed hours of day: 24 of 24</div>`)[0];
+                popup_c442b2fb8e33130ecd130704ec4b7b69.setContent(html_34e43c41cd2f80174849b602a31e49a1);
+            
+        
+
+        circle_marker_848e0aa38ca81d6e849b969cd4284f65.bindPopup(popup_c442b2fb8e33130ecd130704ec4b7b69)
+        ;
+
+        
+    
+    
+            circle_marker_848e0aa38ca81d6e849b969cd4284f65.bindTooltip(
+                `<div>
+                     Birmingham — Station ENG_BHM_003 — 8.34%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_9adacbe8f166b5db0264f223bb13fc4c.addTo(map_05fcd8e1a1649a73cf8a53a278c8efc3);
+        
+    
+            map_05fcd8e1a1649a73cf8a53a278c8efc3.fitBounds(
+                [[47.468, -2.062], [52.557, 13.378]],
+                {"padding": [30, 30]}
+            );
+        
+    
+    var color_map_098d1d4ee21b1bb9a42cebfeb0db80c8 = {};
+
+    
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.color = d3.scale.threshold()
+              .domain([7.272033482680144, 7.2781981503951565, 7.284362818110169, 7.290527485825182, 7.296692153540194, 7.302856821255206, 7.3090214889702185, 7.315186156685231, 7.321350824400243, 7.327515492115256, 7.333680159830268, 7.339844827545281, 7.346009495260293, 7.352174162975305, 7.358338830690318, 7.36450349840533, 7.370668166120343, 7.376832833835355, 7.382997501550367, 7.389162169265379, 7.395326836980392, 7.401491504695405, 7.407656172410417, 7.413820840125429, 7.419985507840441, 7.426150175555454, 7.432314843270467, 7.438479510985479, 7.444644178700491, 7.450808846415503, 7.456973514130516, 7.463138181845529, 7.469302849560541, 7.475467517275553, 7.481632184990565, 7.487796852705578, 7.493961520420591, 7.500126188135603, 7.506290855850615, 7.512455523565627, 7.51862019128064, 7.524784858995652, 7.530949526710665, 7.537114194425677, 7.543278862140689, 7.549443529855702, 7.555608197570714, 7.561772865285727, 7.567937533000739, 7.5741022007157515, 7.580266868430764, 7.586431536145776, 7.592596203860788, 7.598760871575801, 7.6049255392908135, 7.611090207005826, 7.617254874720838, 7.62341954243585, 7.629584210150863, 7.6357488778658755, 7.641913545580888, 7.6480782132959, 7.654242881010912, 7.660407548725924, 7.666572216440938, 7.67273688415595, 7.678901551870962, 7.685066219585974, 7.6912308873009865, 7.697395555016, 7.703560222731012, 7.709724890446024, 7.715889558161036, 7.7220542258760485, 7.728218893591061, 7.734383561306074, 7.740548229021086, 7.746712896736098, 7.7528775644511105, 7.759042232166123, 7.765206899881136, 7.771371567596148, 7.77753623531116, 7.783700903026173, 7.789865570741185, 7.796030238456197, 7.80219490617121, 7.808359573886222, 7.814524241601235, 7.820688909316247, 7.826853577031259, 7.833018244746272, 7.839182912461284, 7.845347580176297, 7.851512247891309, 7.857676915606321, 7.863841583321333, 7.870006251036346, 7.876170918751359, 7.882335586466371, 7.888500254181383, 7.894664921896395, 7.9008295896114085, 7.906994257326421, 7.913158925041433, 7.919323592756445, 7.925488260471457, 7.93165292818647, 7.937817595901483, 7.943982263616495, 7.950146931331507, 7.956311599046519, 7.962476266761532, 7.968640934476545, 7.974805602191557, 7.980970269906569, 7.987134937621581, 7.993299605336594, 7.999464273051606, 8.005628940766618, 8.01179360848163, 8.017958276196644, 8.024122943911657, 8.030287611626669, 8.036452279341681, 8.042616947056693, 8.048781614771706, 8.054946282486718, 8.06111095020173, 8.067275617916742, 8.073440285631754, 8.079604953346767, 8.08576962106178, 8.091934288776793, 8.098098956491805, 8.104263624206817, 8.11042829192183, 8.116592959636842, 8.122757627351854, 8.128922295066866, 8.135086962781878, 8.14125163049689, 8.147416298211903, 8.153580965926917, 8.15974563364193, 8.165910301356941, 8.172074969071954, 8.178239636786966, 8.184404304501978, 8.19056897221699, 8.196733639932003, 8.202898307647015, 8.209062975362027, 8.21522764307704, 8.221392310792053, 8.227556978507065, 8.233721646222078, 8.23988631393709, 8.246050981652102, 8.252215649367114, 8.258380317082127, 8.264544984797139, 8.270709652512151, 8.276874320227163, 8.283038987942177, 8.28920365565719, 8.295368323372202, 8.301532991087214, 8.307697658802226, 8.313862326517238, 8.32002699423225, 8.326191661947263, 8.332356329662275, 8.338520997377287, 8.3446856650923, 8.350850332807312, 8.357015000522324, 8.363179668237338, 8.36934433595235, 8.375509003667363, 8.381673671382375, 8.387838339097387, 8.3940030068124, 8.400167674527411, 8.406332342242424, 8.412497009957436, 8.41866167767245, 8.424826345387462, 8.430991013102474, 8.437155680817487, 8.443320348532499, 8.449485016247511, 8.455649683962523, 8.461814351677535, 8.467979019392548, 8.47414368710756, 8.480308354822572, 8.486473022537584, 8.492637690252597, 8.49880235796761, 8.504967025682623, 8.511131693397635, 8.517296361112647, 8.52346102882766, 8.529625696542672, 8.535790364257684, 8.541955031972696, 8.548119699687708, 8.554284367402722, 8.560449035117735, 8.566613702832747, 8.57277837054776, 8.578943038262771, 8.585107705977784, 8.591272373692796, 8.597437041407808, 8.60360170912282, 8.609766376837833, 8.615931044552845, 8.622095712267857, 8.62826037998287, 8.634425047697883, 8.640589715412895, 8.646754383127908, 8.65291905084292, 8.659083718557932, 8.665248386272944, 8.671413053987957, 8.677577721702969, 8.683742389417983, 8.689907057132995, 8.696071724848007, 8.70223639256302, 8.708401060278032, 8.714565727993044, 8.720730395708056, 8.726895063423068, 8.73305973113808, 8.739224398853093, 8.745389066568105, 8.751553734283117, 8.75771840199813, 8.763883069713144, 8.770047737428156, 8.776212405143168, 8.78237707285818, 8.788541740573192, 8.794706408288205, 8.800871076003217, 8.80703574371823, 8.813200411433241, 8.819365079148254, 8.825529746863268, 8.83169441457828, 8.837859082293292, 8.844023750008304, 8.850188417723317, 8.856353085438329, 8.862517753153341, 8.868682420868353, 8.874847088583365, 8.881011756298378, 8.88717642401339, 8.893341091728402, 8.899505759443416, 8.905670427158428, 8.91183509487344, 8.917999762588453, 8.924164430303465, 8.930329098018477, 8.93649376573349, 8.942658433448502, 8.948823101163514, 8.954987768878526, 8.96115243659354, 8.967317104308552, 8.973481772023565, 8.979646439738577, 8.98581110745359, 8.991975775168601, 8.998140442883614, 9.004305110598626, 9.010469778313638, 9.01663444602865, 9.022799113743663, 9.028963781458675, 9.035128449173689, 9.041293116888701, 9.047457784603713, 9.053622452318725, 9.059787120033738, 9.06595178774875, 9.072116455463762, 9.078281123178774, 9.084445790893787, 9.090610458608799, 9.096775126323811, 9.102939794038825, 9.109104461753837, 9.11526912946885, 9.121433797183862, 9.127598464898874, 9.133763132613886, 9.139927800328898, 9.14609246804391, 9.152257135758923, 9.158421803473935, 9.164586471188947, 9.170751138903961, 9.176915806618974, 9.183080474333986, 9.189245142048998, 9.19540980976401, 9.201574477479022, 9.207739145194035, 9.213903812909047, 9.22006848062406, 9.226233148339071, 9.232397816054085, 9.238562483769098, 9.24472715148411, 9.250891819199122, 9.257056486914134, 9.263221154629147, 9.269385822344159, 9.275550490059171, 9.281715157774183, 9.287879825489195, 9.294044493204208, 9.30020916091922, 9.306373828634232, 9.312538496349246, 9.318703164064258, 9.32486783177927, 9.331032499494283, 9.337197167209295, 9.343361834924307, 9.34952650263932, 9.355691170354332, 9.361855838069346, 9.368020505784358, 9.37418517349937, 9.380349841214382, 9.386514508929395, 9.392679176644407, 9.398843844359419, 9.405008512074431, 9.411173179789444, 9.417337847504456, 9.423502515219468, 9.42966718293448, 9.435831850649492, 9.441996518364505, 9.448161186079519, 9.454325853794531, 9.460490521509543, 9.466655189224555, 9.472819856939568, 9.47898452465458, 9.485149192369592, 9.491313860084604, 9.497478527799618, 9.50364319551463, 9.509807863229643, 9.515972530944655, 9.522137198659667, 9.52830186637468, 9.534466534089692, 9.540631201804704, 9.546795869519716, 9.552960537234728, 9.55912520494974, 9.565289872664753, 9.571454540379765, 9.577619208094777, 9.583783875809791, 9.589948543524804, 9.596113211239816, 9.602277878954828, 9.60844254666984, 9.614607214384852, 9.620771882099865, 9.626936549814877, 9.633101217529891, 9.639265885244903, 9.645430552959915, 9.651595220674928, 9.65775988838994, 9.663924556104952, 9.670089223819964, 9.676253891534977, 9.682418559249989, 9.688583226965001, 9.694747894680013, 9.700912562395025, 9.70707723011004, 9.71324189782505, 9.719406565540064, 9.725571233255076, 9.731735900970088, 9.7379005686851, 9.744065236400113, 9.750229904115125, 9.756394571830137, 9.76255923954515, 9.768723907260163, 9.774888574975176, 9.781053242690188, 9.7872179104052, 9.793382578120212, 9.799547245835225, 9.805711913550237, 9.811876581265249, 9.818041248980261, 9.824205916695274, 9.830370584410286, 9.836535252125298, 9.84269991984031, 9.848864587555322, 9.855029255270336, 9.861193922985349, 9.867358590700361, 9.873523258415373, 9.879687926130385, 9.885852593845398, 9.89201726156041, 9.898181929275422, 9.904346596990436, 9.910511264705448, 9.91667593242046, 9.922840600135473, 9.929005267850485, 9.935169935565497, 9.94133460328051, 9.947499270995522, 9.953663938710534, 9.959828606425546, 9.965993274140558, 9.97215794185557, 9.978322609570583, 9.984487277285595, 9.990651945000609, 9.996816612715621, 10.002981280430634, 10.009145948145646, 10.015310615860658, 10.02147528357567, 10.027639951290684, 10.033804619005695, 10.039969286720709, 10.04613395443572, 10.052298622150733, 10.058463289865745, 10.064627957580758, 10.07079262529577, 10.076957293010782, 10.083121960725794, 10.089286628440806, 10.095451296155819, 10.101615963870831, 10.107780631585843, 10.113945299300855, 10.120109967015868, 10.126274634730882, 10.132439302445894, 10.138603970160906, 10.144768637875918, 10.15093330559093, 10.157097973305943, 10.163262641020955, 10.169427308735967, 10.175591976450981, 10.181756644165993, 10.187921311881006, 10.194085979596018, 10.20025064731103, 10.206415315026042, 10.212579982741055, 10.218744650456067, 10.224909318171079, 10.231073985886091, 10.237238653601104, 10.243403321316116, 10.249567989031128, 10.255732656746142, 10.261897324461154, 10.268061992176166, 10.274226659891179, 10.280391327606191, 10.286555995321203, 10.292720663036215, 10.298885330751228, 10.30504999846624, 10.311214666181254, 10.317379333896266, 10.323544001611278, 10.32970866932629, 10.335873337041303, 10.342038004756315, 10.348202672471327])
+              .range(['#ffffccff', '#ffffccff', '#ffffcbff', '#ffffcaff', '#fffec9ff', '#fffec9ff', '#fffec8ff', '#fffdc7ff', '#fffdc7ff', '#fffdc6ff', '#fffdc5ff', '#fffcc5ff', '#fffcc4ff', '#fffcc3ff', '#fffbc2ff', '#fffbc2ff', '#fffbc1ff', '#fffbc0ff', '#fffac0ff', '#fffabfff', '#fffabeff', '#fff9bdff', '#fff9bdff', '#fff9bcff', '#fff9bbff', '#fff8bbff', '#fff8baff', '#fff8b9ff', '#fff7b8ff', '#fff7b8ff', '#fff7b7ff', '#fff7b6ff', '#fff6b6ff', '#fff6b5ff', '#fff6b4ff', '#fff5b4ff', '#fff5b3ff', '#fff5b2ff', '#fff4b1ff', '#fff4b1ff', '#fff4b0ff', '#fff4afff', '#fff3afff', '#fff3aeff', '#fff3adff', '#fff2acff', '#fff2acff', '#fff2abff', '#fff2aaff', '#fff1aaff', '#fff1a9ff', '#fff1a8ff', '#fff0a7ff', '#fff0a7ff', '#fff0a6ff', '#fff0a5ff', '#ffefa5ff', '#ffefa4ff', '#ffefa3ff', '#ffeea3ff', '#ffeea2ff', '#ffeea1ff', '#ffeea0ff', '#ffeda0ff', '#ffed9fff', '#ffed9eff', '#ffec9eff', '#ffec9dff', '#ffec9cff', '#ffeb9cff', '#ffeb9bff', '#ffeb9aff', '#ffea9aff', '#ffea99ff', '#ffea98ff', '#ffe998ff', '#ffe997ff', '#ffe996ff', '#ffe896ff', '#ffe895ff', '#ffe894ff', '#ffe794ff', '#ffe793ff', '#ffe792ff', '#ffe692ff', '#ffe691ff', '#ffe690ff', '#ffe68fff', '#ffe58fff', '#ffe58eff', '#ffe58dff', '#ffe48dff', '#ffe48cff', '#ffe48bff', '#ffe38bff', '#ffe38aff', '#ffe389ff', '#ffe289ff', '#ffe288ff', '#ffe287ff', '#ffe187ff', '#ffe186ff', '#ffe185ff', '#ffe085ff', '#ffe084ff', '#ffe083ff', '#ffdf83ff', '#ffdf82ff', '#ffdf81ff', '#ffde81ff', '#ffde80ff', '#ffde7fff', '#ffdd7fff', '#ffdd7eff', '#ffdd7dff', '#ffdc7dff', '#ffdc7cff', '#ffdc7bff', '#ffdc7bff', '#ffdb7aff', '#ffdb79ff', '#ffdb78ff', '#ffda78ff', '#ffda77ff', '#ffda76ff', '#fed976ff', '#fed975ff', '#fed874ff', '#fed774ff', '#fed773ff', '#fed672ff', '#fed572ff', '#fed571ff', '#fed470ff', '#fed470ff', '#fed36fff', '#fed26eff', '#fed26eff', '#fed16dff', '#fed06cff', '#fed06cff', '#fecf6bff', '#fecf6aff', '#fece6aff', '#fecd69ff', '#fecd68ff', '#fecc68ff', '#fecb67ff', '#fecb66ff', '#feca66ff', '#feca65ff', '#fec964ff', '#fec864ff', '#fec863ff', '#fec762ff', '#fec662ff', '#fec661ff', '#fec560ff', '#fec45fff', '#fec45fff', '#fec35eff', '#fec35dff', '#fec25dff', '#fec15cff', '#fec15bff', '#fec05bff', '#febf5aff', '#febf59ff', '#febe59ff', '#febe58ff', '#febd57ff', '#febc57ff', '#febc56ff', '#febb55ff', '#feba55ff', '#feba54ff', '#feb953ff', '#feb953ff', '#feb852ff', '#feb751ff', '#feb751ff', '#feb650ff', '#feb54fff', '#feb54fff', '#feb44eff', '#feb44dff', '#feb34dff', '#feb24cff', '#feb24cff', '#feb14bff', '#feb04bff', '#feb04bff', '#feaf4bff', '#feaf4aff', '#feae4aff', '#feae4aff', '#fead4aff', '#feac49ff', '#feac49ff', '#feab49ff', '#feab48ff', '#feaa48ff', '#fea948ff', '#fea948ff', '#fea847ff', '#fea847ff', '#fea747ff', '#fea647ff', '#fea646ff', '#fea546ff', '#fea546ff', '#fea446ff', '#fea345ff', '#fea345ff', '#fea245ff', '#fea245ff', '#fea144ff', '#fea044ff', '#fea044ff', '#fe9f44ff', '#fe9f43ff', '#fe9e43ff', '#fe9d43ff', '#fe9d43ff', '#fe9c42ff', '#fe9c42ff', '#fe9b42ff', '#fe9a42ff', '#fe9a41ff', '#fe9941ff', '#fe9941ff', '#fe9840ff', '#fe9740ff', '#fe9740ff', '#fe9640ff', '#fe963fff', '#fe953fff', '#fe943fff', '#fe943fff', '#fe933eff', '#fe933eff', '#fe923eff', '#fe923eff', '#fe913dff', '#fe903dff', '#fe903dff', '#fe8f3dff', '#fe8f3cff', '#fe8e3cff', '#fe8d3cff', '#fd8d3cff', '#fd8c3bff', '#fd8b3bff', '#fd8a3bff', '#fd883aff', '#fd873aff', '#fd863aff', '#fd853aff', '#fd8439ff', '#fd8339ff', '#fd8239ff', '#fd8138ff', '#fd8038ff', '#fd7f38ff', '#fd7e38ff', '#fd7d37ff', '#fd7c37ff', '#fd7b37ff', '#fd7a36ff', '#fd7936ff', '#fd7836ff', '#fd7736ff', '#fd7635ff', '#fd7535ff', '#fd7435ff', '#fd7334ff', '#fd7234ff', '#fd7134ff', '#fd7033ff', '#fd6f33ff', '#fd6e33ff', '#fd6d33ff', '#fd6c32ff', '#fd6b32ff', '#fd6a32ff', '#fd6931ff', '#fd6831ff', '#fd6731ff', '#fd6631ff', '#fd6530ff', '#fd6430ff', '#fd6330ff', '#fd622fff', '#fd612fff', '#fd602fff', '#fd5f2fff', '#fd5e2eff', '#fd5d2eff', '#fd5c2eff', '#fd5b2dff', '#fd5a2dff', '#fd592dff', '#fd582dff', '#fd572cff', '#fd562cff', '#fd552cff', '#fd542bff', '#fd532bff', '#fd522bff', '#fd512aff', '#fd502aff', '#fd4f2aff', '#fc4e2aff', '#fc4d29ff', '#fc4c29ff', '#fb4b29ff', '#fb4a29ff', '#fa4a29ff', '#fa4928ff', '#fa4828ff', '#f94728ff', '#f94628ff', '#f84527ff', '#f84427ff', '#f84427ff', '#f74327ff', '#f74226ff', '#f64126ff', '#f64026ff', '#f63f26ff', '#f53f26ff', '#f53e25ff', '#f43d25ff', '#f43c25ff', '#f43b25ff', '#f33a24ff', '#f33a24ff', '#f23924ff', '#f23824ff', '#f23724ff', '#f13623ff', '#f13523ff', '#f03523ff', '#f03423ff', '#f03322ff', '#ef3222ff', '#ef3122ff', '#ee3022ff', '#ee3022ff', '#ee2f21ff', '#ed2e21ff', '#ed2d21ff', '#ec2c21ff', '#ec2b20ff', '#ec2b20ff', '#eb2a20ff', '#eb2920ff', '#ea281fff', '#ea271fff', '#ea261fff', '#e9261fff', '#e9251fff', '#e8241eff', '#e8231eff', '#e8221eff', '#e7211eff', '#e7211dff', '#e6201dff', '#e61f1dff', '#e61e1dff', '#e51d1dff', '#e51c1cff', '#e41b1cff', '#e41b1cff', '#e31a1cff', '#e3191cff', '#e2191cff', '#e2181cff', '#e1181cff', '#e0181cff', '#e0171dff', '#df171dff', '#df161dff', '#de161dff', '#dd161dff', '#dd151dff', '#dc151eff', '#dc141eff', '#db141eff', '#da131eff', '#da131eff', '#d9131eff', '#d9121eff', '#d8121fff', '#d7111fff', '#d7111fff', '#d6111fff', '#d5101fff', '#d5101fff', '#d40f20ff', '#d40f20ff', '#d30e20ff', '#d20e20ff', '#d20e20ff', '#d10d20ff', '#d10d21ff', '#d00c21ff', '#cf0c21ff', '#cf0b21ff', '#ce0b21ff', '#ce0b21ff', '#cd0a22ff', '#cc0a22ff', '#cc0922ff', '#cb0922ff', '#ca0922ff', '#ca0822ff', '#c90822ff', '#c90723ff', '#c80723ff', '#c70623ff', '#c70623ff', '#c60623ff', '#c60523ff', '#c50524ff', '#c40424ff', '#c40424ff', '#c30424ff', '#c30324ff', '#c20324ff', '#c10225ff', '#c10225ff', '#c00125ff', '#bf0125ff', '#bf0125ff', '#be0025ff', '#be0026ff', '#bd0026ff', '#bc0026ff', '#bb0026ff', '#ba0026ff', '#b90026ff', '#b80026ff', '#b70026ff', '#b60026ff', '#b50026ff', '#b40026ff', '#b30026ff', '#b20026ff', '#b10026ff', '#b00026ff', '#af0026ff', '#ae0026ff', '#ad0026ff', '#ac0026ff', '#ab0026ff', '#aa0026ff', '#a90026ff', '#a80026ff', '#a70026ff', '#a60026ff', '#a50026ff', '#a40026ff', '#a30026ff', '#a20026ff', '#a10026ff', '#a00026ff', '#9f0026ff', '#9e0026ff', '#9d0026ff', '#9c0026ff', '#9b0026ff', '#9b0026ff', '#9a0026ff', '#990026ff', '#980026ff', '#970026ff', '#960026ff', '#950026ff', '#940026ff', '#930026ff', '#920026ff', '#910026ff', '#900026ff', '#8f0026ff', '#8e0026ff', '#8d0026ff', '#8c0026ff', '#8b0026ff', '#8a0026ff', '#890026ff', '#880026ff', '#870026ff', '#860026ff', '#850026ff', '#840026ff', '#830026ff', '#820026ff', '#810026ff', '#800026ff']);
+    
+
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.x = d3.scale.linear()
+              .domain([7.272033482680144, 10.348202672471327])
+              .range([0, 450 - 50]);
+
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.legend = L.control({position: 'topright'});
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.legend.addTo(map_05fcd8e1a1649a73cf8a53a278c8efc3);
+
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.xAxis = d3.svg.axis()
+        .scale(color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([7.272033482680144, 7.656554631404042, 8.04107578012794, 8.425596928851839, 8.810118077575735, 9.194639226299634, 9.57916037502353, 9.963681523747429, 10.348202672471327]);
+
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.g = color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.svg.append("g")
+        .attr("class", "key")
+        .attr("fill", "black")
+        .attr("transform", "translate(25,16)");
+
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.g.selectAll("rect")
+        .data(color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.x(color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.color.domain()[i - 1]) : color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.x.range()[0],
+            x1: i < color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.color.domain().length ? color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.x(color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.color.domain()[i]) : color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.g.call(color_map_098d1d4ee21b1bb9a42cebfeb0db80c8.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .attr("fill", "black")
+        .text("Standardised mean probability of a city-relative high-heat event (%)");
+    
+            var layer_control_d1e83f49e8336b0c01f0e501f1705b09_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_e634c6e643f9c2725fca14f145e57d6d,
+                },
+                overlays :  {
+                    "Amsterdam" : feature_group_401b9f2e00060974b74abdfa2a259765,
+                    "Basel" : feature_group_9249fa6f7c06920335d7b23f3aa125fc,
+                    "Berlin" : feature_group_8674b7696a14e6736b32a01187cf824e,
+                    "Birmingham" : feature_group_9adacbe8f166b5db0264f223bb13fc4c,
+                },
+            };
+            let layer_control_d1e83f49e8336b0c01f0e501f1705b09 = L.control.layers(
+                layer_control_d1e83f49e8336b0c01f0e501f1705b09_layers.base_layers,
+                layer_control_d1e83f49e8336b0c01f0e501f1705b09_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_05fcd8e1a1649a73cf8a53a278c8efc3);
+
+        
+</script>
+</html>
