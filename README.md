@@ -3,7 +3,7 @@
 This project examines which temporal, spatial, and measurement-related factors are most strongly associated with city-relative high heat exposure using street-level sensor data from selected European cities.
 
 **Analysis:** [`urban_heat_risk_drivers_in_europe.ipynb`](urban_heat_risk_drivers_in_europe.ipynb)  
-**PDF:** [`urban_heat_risk_drivers_in_europe.pdf`](urban_heat_risk_drivers_in_europe.pdf)  
+**Slides:** [`urban_heat_risk_drivers_in_europe.pdf`](urban_heat_risk_drivers_in_europe.pdf)  
 **Interactive map:** [`station_risk_map.html`](station_risk_map.html)
 
 ## Overview
@@ -51,7 +51,7 @@ Launch the analysis with:
 jupyter lab urban_heat_risk_drivers_in_europe.ipynb
 ```
 
-The notebook downloads the source dataset through `kagglehub`. The included PDF provides a static rendering of the analysis, while `station_risk_map.html` contains the interactive station-level map.
+The notebook downloads the source dataset through `kagglehub`. The included slides summarize the analysis, while `station_risk_map.html` contains the interactive station-level map.
 
 ## Data
 
