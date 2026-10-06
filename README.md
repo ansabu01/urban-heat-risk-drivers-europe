@@ -53,6 +53,18 @@ jupyter lab urban_heat_risk_drivers_in_europe.ipynb
 
 The notebook downloads the source dataset through `kagglehub`. The included slides summarize the analysis, while `station_risk_map.html` contains the interactive station-level map.
 
+### Viewing the Interactive Map
+
+GitHub displays HTML files as source code rather than running them. To view the map, download or clone the repository and open `station_risk_map.html` in a web browser.
+
+Alternatively, start a local web server from the repository folder:
+
+```bash
+python -m http.server 8000
+```
+
+Then open [http://localhost:8000/station_risk_map.html](http://localhost:8000/station_risk_map.html) in your browser. Stop the server with `Ctrl+C`.
+
 ## Data
 
 The underlying data are obtained from the FAIRUrbTemp curated dataset and are not redistributed here. Users should consult the [dataset page](https://www.kaggle.com/datasets/pablomoratodomnguez/fairurbtemp-curated) for source documentation and applicable terms.
