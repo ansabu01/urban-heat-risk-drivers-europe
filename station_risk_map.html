@@ -176,14 +176,13 @@
         
     
             var tile_layer_e634c6e643f9c2725fca14f145e57d6d = L.tileLayer(
-                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
                 {
   "minZoom": 0,
   "maxZoom": 20,
   "maxNativeZoom": 20,
   "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
-  "subdomains": "abcd",
+  "attribution": "Tiles \u0026copy; Esri and its data contributors",
   "detectRetina": false,
   "tms": false,
   "opacity": 1,
@@ -3723,7 +3722,7 @@
     
             var layer_control_d1e83f49e8336b0c01f0e501f1705b09_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_e634c6e643f9c2725fca14f145e57d6d,
+                    "Esri World Street Map" : tile_layer_e634c6e643f9c2725fca14f145e57d6d,
                 },
                 overlays :  {
                     "Amsterdam" : feature_group_401b9f2e00060974b74abdfa2a259765,
