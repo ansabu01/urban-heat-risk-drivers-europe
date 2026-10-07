@@ -55,7 +55,7 @@ The notebook downloads the source dataset through `kagglehub`. The included slid
 
 ### Viewing the Interactive Map
 
-GitHub displays HTML files as source code rather than running them. To view the map, download or clone the repository and open `station_risk_map.html` in a web browser.
+View the interactive map through [GitHub Pages](https://ansabu01.github.io/urban-heat-risk-drivers-europe/station_risk_map.html). Because GitHub displays HTML files as source code, download or clone the repository and open `station_risk_map.html` in a browser to view it locally.
 
 Alternatively, start a local web server from the repository folder:
 
